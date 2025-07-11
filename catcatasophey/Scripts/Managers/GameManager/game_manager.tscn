@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4rhwcei6suc2"]
+
+[ext_resource type="Script" uid="uid://7ilutjlso5wq" path="res://Scripts/Managers/GameManager/game_manager.gd" id="1_hwd4i"]
+[ext_resource type="Script" uid="uid://cd3lqlforn3if" path="res://Scripts/Managers/UiManager/ui_manager.gd" id="2_bvti3"]
+[ext_resource type="Script" uid="uid://dwgyrc4q8yia" path="res://Scripts/Managers/SceneManager/scene_manager.gd" id="3_5iwlq"]
+[ext_resource type="Script" uid="uid://bsnsyi624qsto" path="res://Scripts/Managers/AudioManager/audio_manager.gd" id="5_4xjl7"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_hwd4i")
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("2_bvti3")
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("3_5iwlq")
+
+[node name="Level" type="Node" parent="SceneManager"]
+
+[node name="PlayerScene" type="Node" parent="SceneManager"]
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("5_4xjl7")
