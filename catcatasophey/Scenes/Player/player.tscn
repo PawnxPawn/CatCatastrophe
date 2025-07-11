@@ -1,0 +1,86 @@
+[gd_scene load_steps=15 format=3 uid="uid://mfqhiyrupch4"]
+
+[ext_resource type="Script" uid="uid://c8tetyl8ecwmi" path="res://Scenes/Player/player.gd" id="1_jlvik"]
+[ext_resource type="Texture2D" uid="uid://ypt0vqqaruuf" path="res://Assets/Player/catTemp.png" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://bjkfn0yc4j1rw" path="res://Scripts/StateMachine/state_machine.gd" id="3_gk6dx"]
+[ext_resource type="Script" uid="uid://b7l55nqyckj7r" path="res://Scenes/Player/PlayerStates/idle.gd" id="4_gk6dx"]
+[ext_resource type="Script" uid="uid://bgjv77qv387ep" path="res://Scripts/Componets/input_component.gd" id="4_jhyir"]
+[ext_resource type="Script" uid="uid://f24w6hdleftd" path="res://Scripts/Componets/move_component.gd" id="5_74mp2"]
+[ext_resource type="Script" uid="uid://cmwe7omouigpe" path="res://Scenes/Player/PlayerStates/player_move_state.gd" id="5_jhyir"]
+[ext_resource type="Script" uid="uid://bmmwrmagic6gh" path="res://Scripts/Componets/animation_component.gd" id="6_oikmp"]
+[ext_resource type="Script" uid="uid://bjervgf3bpuvi" path="res://Scripts/Componets/damage_component.gd" id="7_06tpx"]
+[ext_resource type="Script" uid="uid://c5srrmabipyo6" path="res://Scripts/Componets/hurtbox_component.gd" id="8_7g0yx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3d8c"]
+atlas = ExtResource("1_uvnfx")
+region = Rect2(0, 0, 43, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpcdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3d8c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtuoh"]
+size = Vector2(22, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dey5f"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_jlvik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -19)
+sprite_frames = SubResource("SpriteFrames_xpcdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -12)
+shape = SubResource("RectangleShape2D_mtuoh")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_gk6dx")
+metadata/_custom_type_script = "uid://bjkfn0yc4j1rw"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_gk6dx")
+metadata/_custom_type_script = "uid://dxuavlj4ittow"
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("5_jhyir")
+metadata/_custom_type_script = "uid://dxuavlj4ittow"
+
+[node name="ComponentContainer" type="Node2D" parent="."]
+
+[node name="InputComponent" type="Node" parent="ComponentContainer"]
+unique_name_in_owner = true
+script = ExtResource("4_jhyir")
+metadata/_custom_type_script = "uid://bgjv77qv387ep"
+
+[node name="MovementComponent" type="Node" parent="ComponentContainer"]
+unique_name_in_owner = true
+script = ExtResource("5_74mp2")
+metadata/_custom_type_script = "uid://f24w6hdleftd"
+
+[node name="AnimationComponent" type="Node" parent="ComponentContainer"]
+unique_name_in_owner = true
+script = ExtResource("6_oikmp")
+metadata/_custom_type_script = "uid://bmmwrmagic6gh"
+
+[node name="DamageComponent" type="Node" parent="ComponentContainer"]
+unique_name_in_owner = true
+script = ExtResource("7_06tpx")
+metadata/_custom_type_script = "uid://bjervgf3bpuvi"
+
+[node name="HurtboxComponent" type="Area2D" parent="ComponentContainer"]
+script = ExtResource("8_7g0yx")
+metadata/_custom_type_script = "uid://c5srrmabipyo6"
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="ComponentContainer/HurtboxComponent"]
+position = Vector2(1, -12)
+shape = SubResource("RectangleShape2D_dey5f")
+debug_color = Color(0.94902, 0, 0, 0.419608)
