@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var animation_component: AnimationComponent = %AnimationComponent
 @onready var damage_component: DamageComponent = %DamageComponent
 @onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
+@onready var jump_componenet: JumpComponent = %JumpComponent
 #endregion
 
 func _ready() -> void:

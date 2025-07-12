@@ -1,7 +1,7 @@
 class_name State extends Node
 
 # Player
-var parent: Node
+var parent: Player
 
 # State Machine
 var sm: StateMachine

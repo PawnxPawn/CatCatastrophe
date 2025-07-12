@@ -6,56 +6,40 @@ extends Node
 @export var animation_player: AnimationPlayer
 
 enum _Direction {
-	DOWN,
-	UP,
-	LEFT,
 	RIGHT,
+	LEFT,
 }
 
-var _last_direction: _Direction = _Direction.DOWN
+var _last_direction: _Direction = _Direction.RIGHT
 
-func handle_move_animation(move_direction: Vector2) -> void:
-	
-	if move_direction == Vector2.ZERO:
+func handle_move_animation(move_direction: float) -> void:
+	return
+	if !move_direction:
 		_run_idle_animation()
 		return
 	
 	
 	
-	if move_direction.x < 0.0:
+	if move_direction < 0.0:
 		animation_player.play(&"walk_left")
 		_last_direction = _Direction.LEFT
-	elif move_direction.x > 0.0:
+	elif move_direction > 0.0:
 		animation_player.play(&"walk_right")
 		_last_direction = _Direction.RIGHT
-	elif move_direction.y < 0.0:
-		animation_player.play(&"walk_up")
-		_last_direction = _Direction.UP
-	elif move_direction.y > 0.0:
-		animation_player.play(&"walk_down")
-		_last_direction = _Direction.DOWN
 
 
 func _run_idle_animation() -> void:
 	match _last_direction:
-		_Direction.UP:
-			animation_player.play(&"idle_up")
-		_Direction.DOWN:
-			animation_player.play(&"idle_down")
 		_Direction.LEFT:
 			animation_player.play(&"idle_left")
 		_Direction.RIGHT:
 			animation_player.play(&"idle_right")
 		_:
-			animation_player.play(&"idle_down")
+			animation_player.play(&"idle_left")
 
 
 func attack_animation() -> void:
 	match _last_direction:
-		_Direction.UP:
-			animation_player.play(&"attack_up")
-		_Direction.DOWN:
-			animation_player.play(&"attack_down")
 		_Direction.LEFT:
 			animation_player.play(&"attack_left")
 		_Direction.RIGHT:

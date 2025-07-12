@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://mfqhiyrupch4"]
+[gd_scene load_steps=18 format=3 uid="uid://mfqhiyrupch4"]
 
 [ext_resource type="Script" uid="uid://c8tetyl8ecwmi" path="res://Scenes/Player/player.gd" id="1_jlvik"]
 [ext_resource type="Texture2D" uid="uid://ypt0vqqaruuf" path="res://Assets/Player/catTemp.png" id="1_uvnfx"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://bjervgf3bpuvi" path="res://Scripts/Componets/damage_component.gd" id="7_06tpx"]
 [ext_resource type="Script" uid="uid://dwphusxbv67ap" path="res://Scenes/Player/PlayerStates/JumpState.gd" id="7_7g0yx"]
 [ext_resource type="Script" uid="uid://c5srrmabipyo6" path="res://Scripts/Componets/hurtbox_component.gd" id="8_7g0yx"]
-[ext_resource type="Script" uid="uid://dsyf7o6wk3xy8" path="res://Scenes/Player/PlayerStates/fall_state.gd" id="8_dey5f"]
 [ext_resource type="Script" uid="uid://bhhbcj3nrg31h" path="res://Scripts/Componets/jump_component.gd" id="12_dey5f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3d8c"]
@@ -68,10 +67,6 @@ metadata/_custom_type_script = "uid://dxuavlj4ittow"
 script = ExtResource("7_7g0yx")
 metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
-[node name="Fall" type="Node" parent="StateMachine"]
-script = ExtResource("8_dey5f")
-metadata/_custom_type_script = "uid://dxuavlj4ittow"
-
 [node name="ComponentContainer" type="Node2D" parent="."]
 
 [node name="InputComponent" type="Node" parent="ComponentContainer"]
@@ -114,4 +109,3 @@ debug_color = Color(0.94902, 0, 0, 0.419608)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-top_level = true

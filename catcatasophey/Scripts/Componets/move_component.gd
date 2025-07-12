@@ -10,8 +10,8 @@ var g = Globals
 var current_speed: float = walk_speed
 
 
-func handle_movement(body: CharacterBody2D, direction: Vector2) -> void:
-	body.velocity = direction * current_speed
+func handle_movement(body: CharacterBody2D, direction: float) -> void:
+	body.velocity = Vector2(direction * current_speed, body.velocity.y)
 
 
 func set_speed(move_type: Globals.MovementType) -> void:

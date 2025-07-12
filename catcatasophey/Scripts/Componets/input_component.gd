@@ -9,3 +9,6 @@ func get_attack_input() -> bool:
 
 func get_run_input() -> bool:
 	return Input.is_action_pressed("run")
+
+func get_jump_input() -> bool:
+	return Input.is_action_just_pressed("jump")
