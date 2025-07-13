@@ -8,7 +8,7 @@ func enter() -> void:
 	parent.move_component.set_speed(g.MovementType.WALK)
 	
 
-func _input(_event: InputEvent) -> void:
+func process_input(_event: InputEvent) -> void:
 	if parent.input_component.get_run_input():
 		state_return(&"Run")
 
@@ -20,8 +20,13 @@ func process_frame(_delta: float) -> void:
 func process_physics(_delta: float) -> void:
 	_direction = parent.input_component.get_direction_input()
 	
-	if !_direction:
+	if _direction == 0.0:
 		state_return(&"Idle")
 	
+	if !parent.is_on_floor():
+		state_return(&"Fall")
+	
+	if parent.input_component.get_jump_input():
+		state_return(&"Jump")
 	parent.move_component.handle_movement(parent, _direction)
 	
