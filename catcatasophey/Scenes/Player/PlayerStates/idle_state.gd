@@ -2,7 +2,8 @@ class_name PlayerIdle
 extends State
 
 func enter() -> void:
-	parent.velocity = Vector2.ZERO
+	parent.velocity.x = 0.0
+	parent.animation_component.handle_move_animation(0.0)
 
 func process_input(_event: InputEvent) -> void:
 	if parent.input_component.get_direction_input():
@@ -15,10 +16,6 @@ func process_input(_event: InputEvent) -> void:
 	if parent.input_component.get_attack_input():
 		return
 		#state_return(&"attack")
-
-
-func process_frame(_delta: float) -> void:
-	parent.animation_component.handle_move_animation(0.0)
 
 
 func process_physics(_delta: float) -> void:

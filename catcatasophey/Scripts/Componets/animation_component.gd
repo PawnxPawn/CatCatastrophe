@@ -12,30 +12,44 @@ enum _Direction {
 
 var _last_direction: _Direction = _Direction.RIGHT
 
-func handle_move_animation(move_direction: float) -> void:
-	return
-	if !move_direction:
-		_run_idle_animation()
+func flip_sprite(move_direction:float):
+	if move_direction == 0.0:
 		return
 	
-	
+	sprite.flip_h = false if move_direction < 0 else true
+
+func handle_move_animation(move_direction: float, is_running:bool = false) -> void:
+	if move_direction == 0.0:
+		_handle_idle_animation()
+		return
 	
 	if move_direction < 0.0:
-		animation_player.play(&"walk_left")
 		_last_direction = _Direction.LEFT
+		flip_sprite(move_direction)
+		animation_player.play(&"walk" if !is_running else &"run")
 	elif move_direction > 0.0:
-		animation_player.play(&"walk_right")
 		_last_direction = _Direction.RIGHT
+		flip_sprite(move_direction )
+		animation_player.play(&"walk" if !is_running else &"run")
 
-
-func _run_idle_animation() -> void:
+func _handle_idle_animation() -> void:
 	match _last_direction:
 		_Direction.LEFT:
-			animation_player.play(&"idle_left")
+			sprite.flip_h = false
+			animation_player.play(&"idle")
 		_Direction.RIGHT:
-			animation_player.play(&"idle_right")
+			sprite.flip_h = true
+			animation_player.play(&"idle")
 		_:
-			animation_player.play(&"idle_left")
+			sprite.flip_h = false
+			animation_player.play(&"idle")
+
+
+func handle_jump_animation(is_falling:bool = false) -> void:
+	if animation_player.current_animation != &"jump_up" && !is_falling:
+		animation_player.play(&"jump_up")
+	if animation_player.current_animation != &"jump_down" && is_falling:
+		animation_player.play(&"jump_down")
 
 
 func attack_animation() -> void:
@@ -44,13 +58,3 @@ func attack_animation() -> void:
 			animation_player.play(&"attack_left")
 		_Direction.RIGHT:
 			animation_player.play(&"attack_right")
-		_:
-			animation_player.play(&"attack_down")
-
-
-
-func _handle_horizontal_flip(move_direction: float) -> void:
-	if move_direction == 0.0:
-		return
-	
-	sprite.flip_h = false if move_direction > 0 else true
