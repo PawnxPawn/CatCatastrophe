@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var damage_component: DamageComponent = %DamageComponent
 @onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var jump_componenet: JumpComponent = %JumpComponent
+@onready var gravity_component: GravityComponent = %GravityComponent
 #endregion
 
 func _ready() -> void:

@@ -19,8 +19,14 @@ func process_frame(_delta: float) -> void:
 func process_physics(_delta: float) -> void:
 	_direction = parent.input_component.get_direction_input()
 	
-	if !_direction:
+	if _direction == 0.0:
 		state_return(&"Idle")
+	
+	if !parent.is_on_floor():
+		state_return(&"Fall")
+	
+	if parent.input_component.get_jump_input():
+		state_return(&"Jump")
 	
 	parent.move_component.handle_movement(parent, _direction)
 	
