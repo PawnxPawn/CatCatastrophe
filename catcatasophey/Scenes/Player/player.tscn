@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://mfqhiyrupch4"]
+[gd_scene load_steps=92 format=3 uid="uid://mfqhiyrupch4"]
 
 [ext_resource type="Script" uid="uid://c8tetyl8ecwmi" path="res://Scenes/Player/player.gd" id="1_jlvik"]
 [ext_resource type="Texture2D" uid="uid://b7wg8f8joopmk" path="res://Assets/ATTACK 1.png" id="2_dey5f"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://c6tlkm8eyqfhx" path="res://Scenes/Player/PlayerStates/laser_state.gd" id="12_aqm4k"]
 [ext_resource type="Script" uid="uid://bhhbcj3nrg31h" path="res://Scripts/Componets/jump_component.gd" id="12_dey5f"]
 [ext_resource type="Script" uid="uid://team786bu0pe" path="res://Scripts/Componets/gravity_component.gd" id="15_dey5f"]
+[ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="20_rcvs5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6uq4"]
 atlas = ExtResource("2_dey5f")
@@ -454,100 +455,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mcfd4"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(264, 148, 44, 37)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcvs5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4of5"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(220, 148, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8s58"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(264, 148, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vn8q6"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(0, 148, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8vj0r"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(44, 148, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7g5o"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(88, 148, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ckdd2"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(132, 148, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37mva"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(176, 148, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vwcno"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(220, 148, 44, 37)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d4a23"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mcfd4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f4of5")
-}],
-"loop": true,
-"name": &"laser_charged",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u8s58")
-}],
-"loop": true,
-"name": &"laser_fire",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vn8q6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8vj0r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j7g5o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ckdd2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_37mva")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vwcno")
-}],
-"loop": false,
-"name": &"laser_startup",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8l7e3"]
-atlas = ExtResource("2_dey5f")
-region = Rect2(187.966, 200.133, 21.5904, 25.8314)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dey5f"]
-height = 36.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_r5xpd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dey5f"]
-size = Vector2(23, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcvs5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ks1b7"]
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8ma5"]
+size = Vector2(14, 32)
+
+[sub_resource type="Animation" id="Animation_mvmwy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ComponentContainer/HitboxComponent/HitboxCollision:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_dey5f"]
 length = 0.666667
@@ -582,7 +513,7 @@ tracks/2/path = NodePath("AnimatedSprite2D/ClawAttack:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.248646, 0.501565),
+"times": PackedFloat32Array(0.24981, 0.501565),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -594,7 +525,7 @@ tracks/3/path = NodePath("AnimatedSprite2D/ClawAttack:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.248646, 0.334946, 0.417828),
+"times": PackedFloat32Array(0.249864, 0.334946, 0.417828),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -610,6 +541,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(),
 "update": 1,
 "values": []
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ComponentContainer/HitboxComponent/HitboxCollision:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2499, 0.499876),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_ks1b7"]
@@ -845,188 +788,6 @@ tracks/2/keys = {
 "values": [Vector2(1, -19)]
 }
 
-[sub_resource type="Animation" id="Animation_hn678"]
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/LaserHead:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/LaserHead:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["laser_charged"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D/LaserHead:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.199942),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(-11, -1), Vector2(-11, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4hadm"]
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/LaserHead:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/LaserHead:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["laser_fire"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D/LaserHead:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-11, -1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D/LaserHead/LaserEffectVisor:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_q0h8a"]
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/LaserHead:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/LaserHead:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["laser_startup"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack"]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite2D/LaserHead:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D/LaserHead:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.00125),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(-11, -1), Vector2(-11, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_mvmwy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/LaserHead:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-11, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qr1w5"]
 _data = {
 &"RESET": SubResource("Animation_mvmwy"),
@@ -1036,9 +797,6 @@ _data = {
 &"idle": SubResource("Animation_rqdc0"),
 &"jump_down": SubResource("Animation_m5eiq"),
 &"jump_up": SubResource("Animation_8g0gh"),
-&"laser_charged": SubResource("Animation_hn678"),
-&"laser_fire": SubResource("Animation_4hadm"),
-&"laser_startup": SubResource("Animation_q0h8a"),
 &"roll": SubResource("Animation_hnuln"),
 &"run": SubResource("Animation_aqm4k"),
 &"walk": SubResource("Animation_4no11")
@@ -1053,43 +811,26 @@ script = ExtResource("1_jlvik")
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_xpcdj")
 animation = &"attack"
+frame = 7
 
 [node name="ClawAttack" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_mcfd4")
 animation = &"claw"
+frame = 2
 flip_h = true
-
-[node name="LaserHead" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
-position = Vector2(-11, 0)
-sprite_frames = SubResource("SpriteFrames_d4a23")
-animation = &"laser_fire"
-
-[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D/LaserHead"]
-z_index = 1
-position = Vector2(-6, 2)
-enabled = false
-target_position = Vector2(-55, 0)
-
-[node name="LaserEffectVisor" type="Sprite2D" parent="AnimatedSprite2D/LaserHead"]
-position = Vector2(-8, 0)
-texture = SubResource("AtlasTexture_8l7e3")
 
 [node name="CatCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, -10)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_dey5f")
+shape = SubResource("CapsuleShape2D_rcvs5")
 
-[node name="BallRollCollision" type="CollisionShape2D" parent="."]
+[node name="CatRollCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, -10)
-rotation = 1.5708
-shape = SubResource("CircleShape2D_r5xpd")
-disabled = true
+shape = SubResource("CircleShape2D_rcvs5")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_gk6dx")
@@ -1149,12 +890,13 @@ unique_name_in_owner = true
 script = ExtResource("5_74mp2")
 metadata/_custom_type_script = "uid://f24w6hdleftd"
 
-[node name="AnimationComponent" type="Node" parent="ComponentContainer" node_paths=PackedStringArray("sprite", "claw_sprite", "animation_player")]
+[node name="AnimationComponent" type="Node" parent="ComponentContainer" node_paths=PackedStringArray("sprite", "claw_sprite", "animation_player", "hitbox_collision")]
 unique_name_in_owner = true
 script = ExtResource("6_oikmp")
 sprite = NodePath("../../AnimatedSprite2D")
 claw_sprite = NodePath("../../AnimatedSprite2D/ClawAttack")
 animation_player = NodePath("../../AnimationPlayer")
+hitbox_collision = NodePath("../HitboxComponent/HitboxCollision")
 metadata/_custom_type_script = "uid://bmmwrmagic6gh"
 
 [node name="DamageComponent" type="Node" parent="ComponentContainer"]
@@ -1173,20 +915,23 @@ unique_name_in_owner = true
 script = ExtResource("8_7g0yx")
 metadata/_custom_type_script = "uid://c5srrmabipyo6"
 
-[node name="HurtboxCatCollision" type="CollisionShape2D" parent="ComponentContainer/HurtboxComponent"]
+[node name="HurtboxCollision" type="CollisionShape2D" parent="ComponentContainer/HurtboxComponent"]
 unique_name_in_owner = true
-visible = false
-position = Vector2(1, -10)
-shape = SubResource("RectangleShape2D_dey5f")
-debug_color = Color(0.94902, 0, 0, 0.419608)
-
-[node name="HurtboxRollCollision" type="CollisionShape2D" parent="ComponentContainer/HurtboxComponent"]
-unique_name_in_owner = true
-visible = false
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ks1b7")
-disabled = true
 debug_color = Color(0.94902, 0, 0, 0.419608)
+
+[node name="HitboxComponent" type="Area2D" parent="ComponentContainer"]
+collision_layer = 32
+collision_mask = 12
+script = ExtResource("20_rcvs5")
+metadata/_custom_type_script = "uid://cfk71aloaw2ap"
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="ComponentContainer/HitboxComponent"]
+position = Vector2(22, -16)
+shape = SubResource("RectangleShape2D_h8ma5")
+disabled = true
+debug_color = Color(0, 0.647041, 0.22179, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

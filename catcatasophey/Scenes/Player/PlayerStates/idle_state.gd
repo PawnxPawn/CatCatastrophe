@@ -4,10 +4,6 @@ extends State
 func enter() -> void:
 	parent.velocity.x = 0.0
 	parent.animation_component.handle_move_animation(0.0)
-	parent.cat_collision.disabled = true
-	parent.ball_roll_collision.disabled = false
-	parent.hurtbox_cat_collision.disabled = true
-	parent.hurtbox_roll_collision.disabled = false
 
 func process_input(_event: InputEvent) -> void:
 	if parent.input_component.get_direction_input():
@@ -27,10 +23,3 @@ func process_input(_event: InputEvent) -> void:
 func process_physics(_delta: float) -> void:
 	if !parent.is_on_floor():
 		state_return(&"Fall")
-
-
-func exit() -> void:
-	parent.cat_collision.disabled = false
-	parent.ball_roll_collision.disabled = true
-	parent.hurtbox_cat_collision.disabled = false
-	parent.hurtbox_roll_collision.disabled = true

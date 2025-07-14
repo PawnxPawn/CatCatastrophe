@@ -4,6 +4,7 @@ extends State
 func enter() -> void:
 	parent.animation_component.animation_player.animation_finished.connect(attack_animation_finished)
 	parent.animation_component.handle_attack_animation()
+	parent.velocity = Vector2.ZERO
 
 
 func attack_animation_finished(anim_name: StringName) -> void:

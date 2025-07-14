@@ -6,9 +6,7 @@ var _direction: float = 0.0
 func enter() -> void: 
 	parent.animation_component.handle_roll_animation()
 	parent.cat_collision.disabled = true
-	parent.ball_roll_collision.disabled = false
-	parent.hurtbox_cat_collision.disabled = true
-	parent.hurtbox_roll_collision.disabled = false
+	parent.cat_roll_collision.disabled = false
 
 
 func process_input(_event: InputEvent) -> void:
@@ -46,6 +44,4 @@ func process_frame(_delta: float) -> void:
 
 func exit() -> void:
 	parent.cat_collision.disabled = false
-	parent.ball_roll_collision.disabled = true
-	parent.hurtbox_cat_collision.disabled = false
-	parent.hurtbox_roll_collision.disabled = true
+	parent.cat_roll_collision.disabled = true

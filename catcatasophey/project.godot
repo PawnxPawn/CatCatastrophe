@@ -84,6 +84,8 @@ laser={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Damageable"
 2d_physics/layer_5="Pickup"
+2d_physics/layer_6="PlayerAttack"
+2d_physics/layer_7="EnemyAttack"
 
 [rendering]
 

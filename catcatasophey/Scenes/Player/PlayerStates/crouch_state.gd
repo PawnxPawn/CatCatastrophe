@@ -17,6 +17,6 @@ func process_input(_event: InputEvent) -> void:
 		state_return(&"Idle")
 		return
 	
-	if !parent.input_component.get_attack_input():
+	if parent.input_component.get_attack_input():
 		state_return(&"Attack")
 		return

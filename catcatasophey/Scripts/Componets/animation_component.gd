@@ -5,6 +5,7 @@ extends Node
 @export var sprite: AnimatedSprite2D
 @export var claw_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer
+@export var hitbox_collision: CollisionShape2D
 
 enum _Direction {
 	RIGHT,
@@ -18,6 +19,7 @@ func flip_sprite(move_direction:float):
 		return
 	
 	sprite.flip_h = false if move_direction < 0 else true
+	hitbox_collision.position.x = 22.0 if move_direction > 0 else -22.0
 	if claw_sprite != null:
 		claw_sprite.flip_h = false if move_direction < 0 else true
 
