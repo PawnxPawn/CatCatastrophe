@@ -3,6 +3,7 @@ extends Node
 
 @export_group("Nodes")
 @export var sprite: AnimatedSprite2D
+@export var claw_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer
 
 enum _Direction {
@@ -17,6 +18,8 @@ func flip_sprite(move_direction:float):
 		return
 	
 	sprite.flip_h = false if move_direction < 0 else true
+	if claw_sprite != null:
+		claw_sprite.flip_h = false if move_direction < 0 else true
 
 func handle_move_animation(move_direction: float, is_running:bool = false) -> void:
 	if move_direction == 0.0:
@@ -52,9 +55,14 @@ func handle_jump_animation(is_falling:bool = false) -> void:
 		animation_player.play(&"jump_down")
 
 
-func attack_animation() -> void:
-	match _last_direction:
-		_Direction.LEFT:
-			animation_player.play(&"attack_left")
-		_Direction.RIGHT:
-			animation_player.play(&"attack_right")
+func handle_attack_animation() -> void:
+	animation_player.play(&"attack")
+
+
+func handle_roll_animation() -> void:
+	animation_player.play(&"roll")
+	animation_player.speed_scale = 1.0
+
+
+func handle_crouch_animation() -> void:
+	animation_player.play(&"crouch")
