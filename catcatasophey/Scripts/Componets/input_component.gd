@@ -2,19 +2,22 @@ class_name InputComponent
 extends Node
 
 func get_direction_input() -> float:
-	return Input.get_axis("move_left","move_right")
+	return Input.get_axis(&"move_left",&"move_right")
 
 
 func get_attack_input() -> bool:
-	return Input.is_action_just_pressed("attack")
+	return Input.is_action_pressed(&"attack")
 
 
 func get_run_input() -> bool:
-	return Input.is_action_pressed("run")
+	return Input.is_action_pressed(&"run")
 
 
 func get_jump_input() -> bool:
-	return Input.is_action_just_pressed("jump")
+	return Input.is_action_just_pressed(&"jump")
 
 func get_jump_held_input() -> bool:
-	return Input.is_action_pressed("jump")
+	return Input.is_action_pressed(&"jump")
+
+func  get_crouch_held_input() -> bool:
+	return Input.is_action_pressed(&"crouch")

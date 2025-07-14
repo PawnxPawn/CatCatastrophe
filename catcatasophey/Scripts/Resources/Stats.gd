@@ -10,6 +10,7 @@ extends Resource
 var health: int = max_health:
 	set(value):
 		health = clampi(value, 0, max_health)
+		print_debug()
 		print (health)
 
 var stamina: int = max_stamina:

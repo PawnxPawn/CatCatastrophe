@@ -7,15 +7,17 @@ func enter() -> void:
 
 func process_input(_event: InputEvent) -> void:
 	if parent.input_component.get_direction_input():
-		if parent.input_component.get_run_input():
-			state_return(&"Run")
-		else:
-			state_return(&"Walk")
+		state_return(&"Walk" if !parent.input_component.get_run_input() else &"Run")
 	if parent.input_component.get_jump_input():
 		state_return(&"Jump")
-	if parent.input_component.get_attack_input():
 		return
-		#state_return(&"attack")
+	if parent.input_component.get_attack_input():
+		state_return(&"Attack")
+		return
+	if parent.input_component.get_crouch_held_input():
+		state_return(&"Crouch")
+		return
+		
 
 
 func process_physics(_delta: float) -> void:

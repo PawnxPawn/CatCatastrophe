@@ -3,10 +3,10 @@ extends CharacterBody2D
 
 #region Nodes
 @onready var state_machine: StateMachine = $StateMachine
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var hurtbox_collision: CollisionShape2D = $ComponentContainer/HurtboxComponent/HurtboxCollision
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var cat_collision: CollisionShape2D = %CatCollision
+@onready var cat_roll_collision: CollisionShape2D = %CatRollCollision
 #endregion
 
 #region Resources
