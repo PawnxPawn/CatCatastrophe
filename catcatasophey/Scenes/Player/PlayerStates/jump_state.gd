@@ -28,7 +28,7 @@ func process_frame(_delta:float) -> void:
 		return
 	
 	if parent.velocity.y > 0: 
-		state_return(&"Fall")
+		state_return(&"Fall" if !parent.input_component.get_jump_held_input() else &"Glide")
 		return
 	
 	if parent.is_on_floor():

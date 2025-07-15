@@ -8,9 +8,13 @@ func enter() -> void:
 
 
 func process_input(_event: InputEvent) -> void:
-	if parent.input_component.get_jump_input() && parent.jump_componenet.jump_count < parent.jump_componenet.current_jump_limit && parent.abilities.double_jump_activated:
-		state_return(&"Jump")
-		return
+	if parent.input_component.get_jump_input():
+		if parent.jump_componenet.jump_count < parent.jump_componenet.current_jump_limit && parent.abilities.double_jump_activated:
+			state_return(&"Jump")
+			return
+		if parent.input_component.get_jump_held_input():
+			state_return(&"Glide")
+			return
 
 
 func process_physics(delta:float) -> void:

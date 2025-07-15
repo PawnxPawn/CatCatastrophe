@@ -68,3 +68,7 @@ func handle_roll_animation() -> void:
 
 func handle_crouch_animation() -> void:
 	animation_player.play(&"crouch")
+
+
+func handle_hurt_animation() -> void:
+	animation_player.play(&"hurt")

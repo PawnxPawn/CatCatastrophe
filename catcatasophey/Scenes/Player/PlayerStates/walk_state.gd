@@ -7,6 +7,7 @@ var g = Globals
 func enter() -> void:
 	parent.move_component.set_speed(g.MovementType.WALK)
 	parent.animation_component.handle_move_animation(parent.input_component.get_direction_input())
+	parent.stats.damage_taken.connect(player_damaged)
 
 func process_input(_event: InputEvent) -> void:
 	if parent.input_component.get_run_input():
@@ -41,3 +42,10 @@ func process_frame(_delta: float) -> void:
 	
 	parent.move_component.handle_movement(parent, _direction)
 	
+
+func player_damaged() -> void:
+	state_return(&"Hurt")
+
+
+func exit() -> void:
+	parent.stats.damage_taken.disconnect(player_damaged)
