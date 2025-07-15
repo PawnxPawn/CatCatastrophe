@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://mfqhiyrupch4"]
+[gd_scene load_steps=105 format=3 uid="uid://mfqhiyrupch4"]
 
 [ext_resource type="Script" uid="uid://c8tetyl8ecwmi" path="res://Scenes/Player/player.gd" id="1_jlvik"]
 [ext_resource type="Texture2D" uid="uid://b7wg8f8joopmk" path="res://Assets/ATTACK 1.png" id="2_dey5f"]
@@ -165,23 +165,19 @@ region = Rect2(264, 444, 44, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0pk7v"]
 atlas = ExtResource("5_rqdc0")
-region = Rect2(0, 222, 44, 37)
+region = Rect2(132, 222, 44, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rblve"]
 atlas = ExtResource("5_rqdc0")
-region = Rect2(44, 222, 44, 37)
+region = Rect2(88, 222, 44, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn4qh"]
 atlas = ExtResource("5_rqdc0")
-region = Rect2(88, 222, 44, 37)
+region = Rect2(44, 222, 44, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5omc3"]
 atlas = ExtResource("5_rqdc0")
-region = Rect2(132, 222, 44, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pcwjh"]
-atlas = ExtResource("5_rqdc0")
-region = Rect2(176, 37, 44, 37)
+region = Rect2(0, 222, 44, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejxfg"]
 atlas = ExtResource("5_rqdc0")
@@ -421,9 +417,6 @@ animations = [{
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pcwjh")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ejxfg")
 }, {
@@ -941,8 +934,8 @@ target_position = Vector2(0, -12)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_xpcdj")
-animation = &"walk"
-frame_progress = 0.239683
+animation = &"run"
+frame_progress = 0.642228
 flip_h = true
 
 [node name="ClawAttack" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
