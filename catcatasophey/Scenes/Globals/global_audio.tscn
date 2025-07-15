@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://oikp3nkqa45o"]
+
+[ext_resource type="AudioStream" uid="uid://v02f6fvqph6u" path="res://Assets/Music/Cat_Catostrophy_Theme.custom_score.mp3" id="1_4skwx"]
+[ext_resource type="Script" uid="uid://bscd8r6t06ajg" path="res://Scenes/Globals/global_audio.gd" id="1_517fa"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_517fa"]
+clip_count = 1
+clip_0/name = &"game"
+clip_0/stream = ExtResource("1_4skwx")
+clip_0/auto_advance = 0
+
+[node name="GlobalAudio" type="Node"]
+script = ExtResource("1_517fa")
+
+[node name="GlobalMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_517fa")
+volume_db = -35.0
+autoplay = true

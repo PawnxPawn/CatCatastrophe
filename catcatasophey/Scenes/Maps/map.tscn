@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxwwufhcabncj"]
+[gd_scene load_steps=17 format=3 uid="uid://dxwwufhcabncj"]
 
 [ext_resource type="PackedScene" uid="uid://mfqhiyrupch4" path="res://Scenes/Player/player.tscn" id="1_033m4"]
+[ext_resource type="Script" uid="uid://ia2dt0exbyu7" path="res://Scenes/Maps/lab.gd" id="1_kdlte"]
 [ext_resource type="Texture2D" uid="uid://bkptpvflrbayy" path="res://backgrounds/bg1.png" id="2_q4nek"]
 [ext_resource type="Texture2D" uid="uid://3f7kbbvfvhea" path="res://backgrounds/bg2.png" id="3_t6gnw"]
 [ext_resource type="Texture2D" uid="uid://bh2rikxnyahis" path="res://backgrounds/bg3.png" id="4_kdlte"]
 [ext_resource type="Texture2D" uid="uid://dfrnclbg7ladc" path="res://backgrounds/bg4.png" id="5_4i112"]
 [ext_resource type="Texture2D" uid="uid://d2kkltm07w645" path="res://backgrounds/bg5.png" id="6_t6gnw"]
+[ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="8_4i112"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgksj"]
 size = Vector2(94.5, 12)
@@ -28,7 +30,10 @@ size = Vector2(59, 86)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6lj2"]
 size = Vector2(91.5, 89)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf2qa"]
+
 [node name="Lab" type="Node2D"]
+script = ExtResource("1_kdlte")
 
 [node name="tabletop" type="StaticBody2D" parent="."]
 
@@ -43,12 +48,14 @@ position = Vector2(5, 133.5)
 shape = SubResource("RectangleShape2D_7n6eb")
 
 [node name="jump test" type="StaticBody2D" parent="."]
+position = Vector2(0, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="jump test"]
 position = Vector2(161, 160)
 shape = SubResource("RectangleShape2D_yb1ct")
 
 [node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2(160, 180)
@@ -99,7 +106,7 @@ position = Vector2(480, -9)
 shape = SubResource("RectangleShape2D_ehuit")
 
 [node name="walll2" type="StaticBody2D" parent="."]
-position = Vector2(48, -93)
+position = Vector2(42, -94)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walll2"]
 position = Vector2(428.75, 216.5)
@@ -163,3 +170,14 @@ repeat_size = Vector2(320, 190)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_t6gnw")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("8_4i112")
+metadata/_custom_type_script = "uid://cfk71aloaw2ap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(24, 74)
+shape = SubResource("RectangleShape2D_uf2qa")
+debug_color = Color(0.74534, 0.344606, 0, 0.42)

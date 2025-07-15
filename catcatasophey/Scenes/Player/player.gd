@@ -10,7 +10,8 @@ extends CharacterBody2D
 #endregion
 
 #region Resources
-@export var stats: Resource
+@export var stats: CharacterStats
+@export var abilities: Abilities
 #endregion
 
 #region Components

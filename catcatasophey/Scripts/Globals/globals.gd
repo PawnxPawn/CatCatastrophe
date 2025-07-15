@@ -9,3 +9,10 @@ enum SceneType {
 	LEVEL,
 	PLAYER,
 }
+
+enum CollectableTypes {
+	JUMP,
+	RUN,
+	ROLL,
+	ATTACK,
+}

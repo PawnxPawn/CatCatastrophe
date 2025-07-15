@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ypt0vqqaruuf"
-path="res://.godot/imported/catTemp.png-cfcb798f68f74c6c2ce97e09f0df5d7a.ctex"
+uid="uid://choxn0bxwsdjg"
+path="res://.godot/imported/Fireball loop.png-e3cadca8078a5e39763f19b8090abeec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/catTemp.png"
-dest_files=["res://.godot/imported/catTemp.png-cfcb798f68f74c6c2ce97e09f0df5d7a.ctex"]
+source_file="res://Assets/microwave/Fireball loop.png"
+dest_files=["res://.godot/imported/Fireball loop.png-e3cadca8078a5e39763f19b8090abeec.ctex"]
 
 [params]
 

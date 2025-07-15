@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Abilities" load_steps=2 format=3 uid="uid://wopajmw00cc2"]
+
+[ext_resource type="Script" uid="uid://dtchpkmecfeue" path="res://Scripts/Resources/abilities.gd" id="1_p7o23"]
+
+[resource]
+script = ExtResource("1_p7o23")
+run_activated = true
+roll_activated = true
+jump_activated = true
+attack_activated = true
+laser_activated = false
+double_jump_activated = true
+metadata/_custom_type_script = "uid://dtchpkmecfeue"
