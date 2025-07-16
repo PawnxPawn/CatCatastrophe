@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://n8efw5j2sisc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf2qa"]
+load_path = "res://.godot/imported/Objects.png-e20fecb5adbf99e6c4c6013107f917af.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxx83"]
+atlas = SubResource("CompressedTexture2D_uf2qa")
+region = Rect2(0.415787, 54.0396, 48.5168, 48.0503)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3tk"]
+atlas = SubResource("CompressedTexture2D_uf2qa")
+region = Rect2(4.61435, 19.0515, 36.8541, 15.8613)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kclty"]
+atlas = SubResource("CompressedTexture2D_uf2qa")
+region = Rect2(50.3321, 11.5874, 18.1938, 23.3254)
+
+[node name="Desk1" type="Node2D"]
+
+[node name="Objects2" type="Sprite2D" parent="."]
+position = Vector2(615, 156)
+texture = SubResource("AtlasTexture_qxx83")
+
+[node name="Objects3" type="Sprite2D" parent="."]
+position = Vector2(617, 132)
+texture = SubResource("AtlasTexture_jc3tk")
+
+[node name="Objects4" type="Sprite2D" parent="."]
+position = Vector2(605, 147)
+texture = SubResource("AtlasTexture_kclty")

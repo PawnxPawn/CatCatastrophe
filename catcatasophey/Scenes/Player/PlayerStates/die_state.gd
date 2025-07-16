@@ -7,7 +7,12 @@ func enter() -> void:
 	parent.animation_component.animation_player.animation_finished.connect(death_animation_finished)
 
 
+func process_physics(delta:float) -> void:
+	parent.velocity.y += parent.gravity_component.apply_fall_gravity() * delta
+
 func death_animation_finished(anim_name:StringName) -> void:
+	if anim_name == &"hurt":
+		parent.animation_component.handle_death_animation()
 	if anim_name == &"death":
 		return
 	pass

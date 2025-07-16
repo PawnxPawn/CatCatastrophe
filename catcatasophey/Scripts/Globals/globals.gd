@@ -15,4 +15,6 @@ enum CollectableTypes {
 	RUN,
 	ROLL,
 	ATTACK,
+	GLIDE,
+	YARN,
 }

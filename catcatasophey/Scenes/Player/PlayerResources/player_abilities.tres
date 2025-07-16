@@ -4,10 +4,11 @@
 
 [resource]
 script = ExtResource("1_p7o23")
-run_activated = true
-roll_activated = true
-jump_activated = true
-attack_activated = true
+run_activated = false
+roll_activated = false
+jump_activated = false
+attack_activated = false
 laser_activated = false
-double_jump_activated = true
+double_jump_activated = false
+glide_activated = false
 metadata/_custom_type_script = "uid://dtchpkmecfeue"

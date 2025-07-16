@@ -2,9 +2,13 @@ class_name PlayerFall
 extends State
 
 var _direction:float
+var die:Callable = func(): state_return(&"Die")
+var player_damaged:Callable = func(): state_return(&"Hurt") 
 
 func enter() -> void:
 	parent.animation_component.handle_jump_animation(true)
+	parent.stats.damage_taken.connect(player_damaged)
+	parent.stats.dead.connect(die)
 
 
 func process_input(_event: InputEvent) -> void:
@@ -12,7 +16,7 @@ func process_input(_event: InputEvent) -> void:
 		if parent.jump_componenet.jump_count < parent.jump_componenet.current_jump_limit && parent.abilities.double_jump_activated:
 			state_return(&"Jump")
 			return
-		if parent.input_component.get_jump_held_input():
+		if parent.input_component.get_jump_held_input() && parent.abilities.glide_activated:
 			state_return(&"Glide")
 			return
 
@@ -34,4 +38,7 @@ func process_physics(delta:float) -> void:
 			return
 		state_return(&"Idle")
 		return
-	
+
+func exit() -> void:
+	parent.stats.damage_taken.disconnect(player_damaged)
+	parent.stats.dead.disconnect(die)

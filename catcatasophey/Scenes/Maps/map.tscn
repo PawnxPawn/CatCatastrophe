@@ -1,177 +1,102 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxwwufhcabncj"]
+[gd_scene load_steps=21 format=4 uid="uid://dxwwufhcabncj"]
 
 [ext_resource type="PackedScene" uid="uid://mfqhiyrupch4" path="res://Scenes/Player/player.tscn" id="1_033m4"]
 [ext_resource type="Script" uid="uid://ia2dt0exbyu7" path="res://Scenes/Maps/lab.gd" id="1_kdlte"]
-[ext_resource type="Texture2D" uid="uid://bkptpvflrbayy" path="res://backgrounds/bg1.png" id="2_q4nek"]
-[ext_resource type="Texture2D" uid="uid://3f7kbbvfvhea" path="res://backgrounds/bg2.png" id="3_t6gnw"]
-[ext_resource type="Texture2D" uid="uid://bh2rikxnyahis" path="res://backgrounds/bg3.png" id="4_kdlte"]
-[ext_resource type="Texture2D" uid="uid://dfrnclbg7ladc" path="res://backgrounds/bg4.png" id="5_4i112"]
-[ext_resource type="Texture2D" uid="uid://d2kkltm07w645" path="res://backgrounds/bg5.png" id="6_t6gnw"]
+[ext_resource type="PackedScene" uid="uid://n8efw5j2sisc" path="res://Scenes/objects/desks/desk_1.tscn" id="2_ww8yf"]
+[ext_resource type="Texture2D" uid="uid://bkptpvflrbayy" path="res://backgrounds/bg1.png" id="3_4i112"]
+[ext_resource type="PackedScene" uid="uid://dc5v2o7i1udig" path="res://Scenes/Collectables/attack_ability.tscn" id="4_b1vt7"]
+[ext_resource type="Texture2D" uid="uid://3f7kbbvfvhea" path="res://backgrounds/bg2.png" id="4_uf2qa"]
+[ext_resource type="PackedScene" uid="uid://ck4ois772clab" path="res://Scenes/Collectables/jump_ability.tscn" id="5_o5d27"]
+[ext_resource type="Texture2D" uid="uid://bh2rikxnyahis" path="res://backgrounds/bg3.png" id="5_ww8yf"]
+[ext_resource type="PackedScene" uid="uid://bcp7ecw8a7cni" path="res://Scenes/Collectables/double_jump.tscn" id="6_mahy4"]
+[ext_resource type="Texture2D" uid="uid://dfrnclbg7ladc" path="res://backgrounds/bg4.png" id="6_qxx83"]
+[ext_resource type="PackedScene" uid="uid://d0mi441xqlt8d" path="res://Scenes/Collectables/roll_ability.tscn" id="7_56xhb"]
+[ext_resource type="Texture2D" uid="uid://d2kkltm07w645" path="res://backgrounds/bg5.png" id="7_jc3tk"]
 [ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="8_4i112"]
+[ext_resource type="PackedScene" uid="uid://by17uqe452rqt" path="res://Scenes/Collectables/run_ability.tscn" id="8_l14b5"]
+[ext_resource type="Texture2D" uid="uid://d1by2e6iwj1c1" path="res://Assets/envirement/floor tiles for catastraphy.png" id="9_uf2qa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgksj"]
-size = Vector2(94.5, 12)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf2qa"]
+load_path = "res://.godot/imported/Objects.png-e20fecb5adbf99e6c4c6013107f917af.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n6eb"]
-size = Vector2(82, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww8yf"]
+atlas = SubResource("CompressedTexture2D_uf2qa")
+region = Rect2(2.71913, 103.029, 45.2512, 40.9706)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb1ct"]
-size = Vector2(31, 20)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ww8yf"]
+texture = ExtResource("9_uf2qa")
+texture_region_size = Vector2i(29, 29)
+0:0/0 = 0
+0:0/0/probability = 0.33
+1:0/0 = 0
+1:0/0/probability = 0.33
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/probability = 0.2
+4:0/0 = 0
+4:0/0/probability = 0.2
+5:0/0 = 0
+5:0/0/probability = 0.2
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/probability = 0.33
+3:1/0 = 0
+3:1/0/probability = 0.2
+4:1/0 = 0
+4:1/0/probability = 0.2
+5:1/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -10.5, 14.5, -10.5, 14.5, 14.5, -14.5, 14.5)
+6:1/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+8:0/0 = 0
+8:1/0 = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehuit"]
-size = Vector2(320, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mrt3"]
-size = Vector2(20, 140)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwowx"]
-size = Vector2(59, 86)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6lj2"]
-size = Vector2(91.5, 89)
+[sub_resource type="TileSet" id="TileSet_qxx83"]
+tile_size = Vector2i(29, 29)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_ww8yf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uf2qa"]
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_kdlte")
 
-[node name="tabletop" type="StaticBody2D" parent="."]
+[node name="Objects" type="Sprite2D" parent="."]
+position = Vector2(556, 156)
+texture = SubResource("AtlasTexture_ww8yf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tabletop"]
-position = Vector2(11.75, 92)
-shape = SubResource("RectangleShape2D_cgksj")
+[node name="Desk1" parent="." instance=ExtResource("2_ww8yf")]
 
-[node name="table" type="StaticBody2D" parent="."]
+[node name="Tilesets" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="table"]
-position = Vector2(5, 133.5)
-shape = SubResource("RectangleShape2D_7n6eb")
+[node name="Ground" type="TileMapLayer" parent="Tilesets"]
+tile_map_data = PackedByteArray("AAAAAAYAAAAGAAAAAAABAAYAAAAGAAAAAAACAAYAAAAGAAAAAAADAAYAAAAGAAAAAAAEAAYAAAAGAAAAAAAFAAYAAAAGAAAAAAAGAAYAAAAGAAAAAAAHAAYAAAAGAAAAAAAIAAYAAAAGAAAAAAAJAAYAAAAGAAAAAAAKAAYAAAAGAAAAAAALAAYAAAAGAAAAAAAMAAYAAAAGAAAAAAANAAYAAAAGAAAAAAAOAAYAAAAGAAAAAAAPAAYAAAAGAAAAAAAQAAYAAAAGAAAAAAARAAYAAAAGAAAAAAASAAYAAAAGAAAAAAATAAYAAAAGAAAAAAAUAAYAAAAGAAAAAAAVAAYAAAAGAAAAAAAWAAYAAAAGAAAAAAAXAAYAAAAGAAAAAAAYAAYAAAAGAAAAAAAZAAYAAAAGAAAAAAAaAAYAAAAGAAAAAAAbAAYAAAAGAAAAAAADAAMAAAAGAAAAAAADAAQAAAAGAAAAAAADAAUAAAAGAAAAAAAEAAMAAAAGAAAAAAAEAAQAAAAGAAAAAAAEAAUAAAAGAAAAAAAFAAMAAAAGAAAAAAAFAAQAAAAGAAAAAAAFAAUAAAAGAAAAAAAOAAUAAAAGAAAAAAAPAAUAAAAGAAAAAAAQAAUAAAAGAAAAAAAcAAIAAAAGAAAAAAAcAAMAAAAGAAAAAAAcAAQAAAAGAAAAAAAdAAIAAAAGAAAAAAAdAAMAAAAGAAAAAAAdAAQAAAAGAAAAAAAcAAYAAAAGAAAAAAAdAAYAAAAGAAAAAAAeAAYAAAAGAAAAAAAfAAYAAAAGAAAAAAAgAAYAAAAGAAAAAAAhAAYAAAAGAAAAAAAiAAYAAAAGAAAAAAAjAAYAAAAGAAAAAAAkAAYAAAAGAAAAAAAlAAYAAAAGAAAAAAAmAAYAAAAGAAAAAAAnAAYAAAAGAAAAAAAoAAYAAAAGAAAAAAApAAYAAAAGAAAAAAAqAAYAAAAGAAAAAAArAAYAAAAGAAAAAAAsAAYAAAAGAAAAAAAtAAYAAAAGAAAAAAAuAAYAAAAGAAAAAAAvAAYAAAAGAAAAAAAwAAYAAAAGAAAAAAAxAAYAAAAGAAAAAAAyAAYAAAAGAAAAAAAzAAYAAAAGAAAAAAA0AAYAAAAGAAAAAAA1AAYAAAAGAAAAAAA2AAYAAAAGAAAAAAA3AAYAAAAGAAAAAAA4AAYAAAAGAAAAAAA5AAYAAAAGAAAAAAA6AAYAAAAGAAAAAAA=")
+tile_set = SubResource("TileSet_qxx83")
 
-[node name="jump test" type="StaticBody2D" parent="."]
-position = Vector2(0, -19)
+[node name="AttackAbility" parent="Tilesets" instance=ExtResource("4_b1vt7")]
+position = Vector2(1055, 145)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jump test"]
-position = Vector2(161, 160)
-shape = SubResource("RectangleShape2D_yb1ct")
+[node name="JumpAbility" parent="Tilesets" instance=ExtResource("5_o5d27")]
+position = Vector2(1136, 145)
 
-[node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(-1, 0)
+[node name="DoubleJump" parent="Tilesets" instance=ExtResource("6_mahy4")]
+position = Vector2(1223, 144)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(160, 180)
-shape = SubResource("RectangleShape2D_ehuit")
+[node name="RollAbility" parent="Tilesets" instance=ExtResource("7_56xhb")]
+position = Vector2(1312, 144)
 
-[node name="ceiling" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
-position = Vector2(160, -10)
-shape = SubResource("RectangleShape2D_ehuit")
-
-[node name="ceiling3" type="StaticBody2D" parent="."]
-position = Vector2(-322, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling3"]
-position = Vector2(160, -10)
-shape = SubResource("RectangleShape2D_ehuit")
-
-[node name="ceiling4" type="StaticBody2D" parent="."]
-position = Vector2(-643, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling4"]
-position = Vector2(160, -10)
-shape = SubResource("RectangleShape2D_ehuit")
-
-[node name="door" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
-position = Vector2(319, 71)
-shape = SubResource("RectangleShape2D_5mrt3")
-
-[node name="wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
-position = Vector2(-29.5, 43)
-shape = SubResource("RectangleShape2D_rwowx")
-
-[node name="floor2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
-position = Vector2(480, 180)
-shape = SubResource("RectangleShape2D_ehuit")
-
-[node name="ceiling2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling2"]
-position = Vector2(480, -9)
-shape = SubResource("RectangleShape2D_ehuit")
-
-[node name="walll2" type="StaticBody2D" parent="."]
-position = Vector2(42, -94)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walll2"]
-position = Vector2(428.75, 216.5)
-shape = SubResource("RectangleShape2D_e6lj2")
+[node name="RunAbility" parent="Tilesets" instance=ExtResource("8_l14b5")]
+position = Vector2(1384, 145)
 
 [node name="Player" parent="." instance=ExtResource("1_033m4")]
-position = Vector2(587, 167)
-
-[node name="BG1Parllax" type="Parallax2D" parent="."]
-z_index = -101
-scroll_scale = Vector2(0.8, 0.8)
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG1TextureRect" type="TextureRect" parent="BG1Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_q4nek")
-metadata/_edit_use_anchors_ = true
-
-[node name="BG2Parllax" type="Parallax2D" parent="."]
-z_index = -102
-scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG2TextureRect" type="TextureRect" parent="BG2Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_t6gnw")
-
-[node name="BG3Parllax" type="Parallax2D" parent="."]
-z_index = -103
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG3TextureRect" type="TextureRect" parent="BG3Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_kdlte")
-stretch_mode = 1
-
-[node name="BG4Parllax" type="Parallax2D" parent="."]
-z_index = -104
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG4TextureRect" type="TextureRect" parent="BG4Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_4i112")
-
-[node name="BG5Parllax" type="Parallax2D" parent="."]
-z_index = -104
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG5TextureRect" type="TextureRect" parent="BG5Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_t6gnw")
+position = Vector2(748, 175)
 
 [node name="HitboxComponent" type="Area2D" parent="."]
+position = Vector2(413, 15)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("8_4i112")
@@ -181,3 +106,64 @@ metadata/_custom_type_script = "uid://cfk71aloaw2ap"
 position = Vector2(24, 74)
 shape = SubResource("RectangleShape2D_uf2qa")
 debug_color = Color(0.74534, 0.344606, 0, 0.42)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BG1Parllax" type="Parallax2D" parent="Background"]
+z_index = -101
+scroll_scale = Vector2(0.8, 0.1)
+scroll_offset = Vector2(0, -169)
+repeat_size = Vector2(320, 190)
+
+[node name="BG1TextureRect" type="TextureRect" parent="Background/BG1Parllax"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_4i112")
+metadata/_edit_use_anchors_ = true
+
+[node name="BG2Parllax" type="Parallax2D" parent="Background"]
+z_index = -102
+scroll_scale = Vector2(0.6, 0.2)
+scroll_offset = Vector2(0, -169)
+repeat_size = Vector2(320, 190)
+
+[node name="BG2TextureRect" type="TextureRect" parent="Background/BG2Parllax"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_uf2qa")
+metadata/_edit_use_anchors_ = true
+
+[node name="BG3Parllax" type="Parallax2D" parent="Background"]
+z_index = -103
+scroll_scale = Vector2(0.4, 0.3)
+scroll_offset = Vector2(0, -169)
+repeat_size = Vector2(320, 190)
+
+[node name="BG3TextureRect" type="TextureRect" parent="Background/BG3Parllax"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_ww8yf")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BG4Parllax" type="Parallax2D" parent="Background"]
+z_index = -104
+scroll_scale = Vector2(0.2, 0.4)
+scroll_offset = Vector2(0, -169)
+repeat_size = Vector2(320, 190)
+
+[node name="BG4TextureRect" type="TextureRect" parent="Background/BG4Parllax"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_qxx83")
+metadata/_edit_use_anchors_ = true
+
+[node name="BG5Parllax" type="Parallax2D" parent="Background"]
+z_index = -105
+scroll_offset = Vector2(0, -169)
+repeat_size = Vector2(320, 190)
+
+[node name="BG5TextureRect" type="TextureRect" parent="Background/BG5Parllax"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_jc3tk")

@@ -8,4 +8,5 @@ extends Resource
 @export var attack_activated: bool = false
 @export var laser_activated: bool = false
 @export var double_jump_activated: bool = false
+@export var glide_activated: bool = false
 #endregion

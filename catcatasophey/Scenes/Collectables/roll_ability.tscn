@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0mi441xqlt8d"]
+
+[ext_resource type="PackedScene" uid="uid://dmmbn07xb7fot" path="res://Scenes/Collectables/base_ability.tscn" id="1_uxl38"]
+[ext_resource type="Texture2D" uid="uid://8ys1114of5ua" path="res://Assets/Powerups.png" id="2_ao6vq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxl38"]
+atlas = ExtResource("2_ao6vq")
+region = Rect2(4, 59, 20, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt3ms"]
+atlas = ExtResource("2_ao6vq")
+region = Rect2(33, 25, 16, 15)
+
+[node name="RollAbility" instance=ExtResource("1_uxl38")]
+texture = SubResource("AtlasTexture_uxl38")
+
+[node name="AbilityIcon" parent="." index="0"]
+position = Vector2(0, -1)
+texture = SubResource("AtlasTexture_xt3ms")
+
+[node name="CollectableComponent" parent="." index="1"]
+collectable_type = 2

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcp7ecw8a7cni"]
+
+[ext_resource type="PackedScene" uid="uid://dmmbn07xb7fot" path="res://Scenes/Collectables/base_ability.tscn" id="1_tmwbv"]
+[ext_resource type="Texture2D" uid="uid://8ys1114of5ua" path="res://Assets/Powerups.png" id="2_m3lvd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3142"]
+atlas = ExtResource("2_m3lvd")
+region = Rect2(36, 42, 12, 14)
+
+[node name="DoubleJump" instance=ExtResource("1_tmwbv")]
+
+[node name="AbilityIcon" parent="." index="0"]
+texture = SubResource("AtlasTexture_p3142")

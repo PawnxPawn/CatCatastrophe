@@ -4,6 +4,8 @@ extends State
 @export var ceiling_check_left: RayCast2D
 @export var ceiling_check_right: RayCast2D
 var _direction: float = 0.0
+var die:Callable = func(): state_return(&"Die")
+var player_damaged: Callable = func(): state_return(&"Hurt")
 
 func enter() -> void: 
 	parent.animation_component.handle_roll_animation()
@@ -11,6 +13,8 @@ func enter() -> void:
 	parent.cat_roll_collision.disabled = false
 	ceiling_check_left.enabled = true
 	ceiling_check_right.enabled = true
+	parent.stats.damage_taken.connect(player_damaged)
+	parent.stats.dead.connect(die)
 
 
 func process_input(_event: InputEvent) -> void:
@@ -51,7 +55,9 @@ func check_ceiling_collision() -> bool:
 	return ceiling_check_left.is_colliding() or ceiling_check_right.is_colliding()
 
 func exit() -> void:
-	parent.cat_collision.disabled = false
-	parent.cat_roll_collision.disabled = true
+	parent.cat_collision.set_deferred(&"disabled", false)
+	parent.cat_roll_collision.set_deferred(&"disabled", true)
 	ceiling_check_left.enabled = false
 	ceiling_check_right.enabled = false
+	parent.stats.damage_taken.disconnect(player_damaged)
+	parent.stats.dead.disconnect(die)

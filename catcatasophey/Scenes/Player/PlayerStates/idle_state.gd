@@ -1,10 +1,13 @@
 class_name PlayerIdle
 extends State
 
+var die:Callable = func(): state_return(&"Die")
+
 func enter() -> void:
 	parent.velocity.x = 0.0
 	parent.animation_component.handle_move_animation(0.0)
 	parent.stats.damage_taken.connect(player_damaged)
+	parent.stats.dead.connect(die)
 
 func process_input(_event: InputEvent) -> void:
 	if parent.input_component.get_direction_input():
@@ -33,3 +36,4 @@ func player_damaged() -> void:
 
 func exit() -> void:
 	parent.stats.damage_taken.disconnect(player_damaged)
+	parent.stats.dead.disconnect(die)

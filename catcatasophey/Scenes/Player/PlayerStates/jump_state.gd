@@ -3,12 +3,16 @@ extends State
 
 var _direction: float = 0.0
 var _initial_run: bool = true
+var die:Callable = func(): state_return(&"Die")
+var player_damaged: Callable = func(): state_return(&"Hurt")
 
 func enter() -> void:
 	_initial_run = true
 	parent.jump_componenet.jump_count += 1
 	parent.jump_componenet.handle_jump(parent)
 	parent.animation_component.handle_jump_animation()
+	parent.stats.damage_taken.connect(player_damaged)
+	parent.stats.dead.connect(die)
 
 
 func process_input(_event: InputEvent) -> void:
@@ -27,8 +31,11 @@ func process_frame(_delta:float) -> void:
 		state_return(&"Fall")
 		return
 	
-	if parent.velocity.y > 0: 
-		state_return(&"Fall" if !parent.input_component.get_jump_held_input() else &"Glide")
+	if parent.velocity.y > 0:
+		if parent.input_component.get_jump_held_input() && parent.abilities.glide_activated:
+			state_return(&"Glide")
+			return 
+		state_return(&"Fall")
 		return
 	
 	if parent.is_on_floor():
@@ -47,3 +54,8 @@ func process_frame(_delta:float) -> void:
 
 func process_physics(delta:float) -> void:
 	parent.velocity.y += parent.gravity_component.apply_launch_gravity() * delta
+
+
+func exit() -> void:
+	parent.stats.damage_taken.disconnect(player_damaged)
+	parent.stats.dead.disconnect(die)

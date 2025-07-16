@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc5v2o7i1udig"]
+
+[ext_resource type="PackedScene" uid="uid://dmmbn07xb7fot" path="res://Scenes/Collectables/base_ability.tscn" id="1_bhbq3"]
+[ext_resource type="Texture2D" uid="uid://8ys1114of5ua" path="res://Assets/Powerups.png" id="2_lcr53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3k4r"]
+atlas = ExtResource("2_lcr53")
+region = Rect2(4, 59, 20, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehr6c"]
+atlas = ExtResource("2_lcr53")
+region = Rect2(9, 3, 15, 18)
+
+[node name="AttackAbility" instance=ExtResource("1_bhbq3")]
+texture = SubResource("AtlasTexture_p3k4r")
+
+[node name="AbilityIcon" parent="." index="0"]
+texture = SubResource("AtlasTexture_ehr6c")
+
+[node name="CollectableComponent" parent="." index="1"]
+collectable_type = 3

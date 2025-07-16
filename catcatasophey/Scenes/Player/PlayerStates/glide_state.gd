@@ -2,15 +2,22 @@ extends State
 
 const VELOCITY_HEIGHT: float = 65.0
 const TIME_TO_DECENT: float = 15.0
+var die:Callable = func(): state_return(&"Die")
+var player_damaged:Callable = func(): state_return(&"Hurt")
 
 func enter() -> void:
 	parent.velocity.y = 0.0
+	parent.animation_component.handle_glide_animation()
+	parent.stats.damage_taken.connect(player_damaged)
+	parent.stats.dead.connect(die)
+	parent.nyon_rainbow.visible = true
 
 func process_physics(_delta:float) -> void:
 	parent.velocity.y += parent.gravity_component.apply_custom_gravity(VELOCITY_HEIGHT, TIME_TO_DECENT)
 	
 	var _direction = parent.input_component.get_direction_input()
 	parent.move_component.handle_movement(parent, _direction)
+	parent.animation_component.flip_sprite(_direction)
 	
 	if !parent.input_component.get_jump_held_input():
 		state_return(&"Fall")
@@ -25,3 +32,9 @@ func process_physics(_delta:float) -> void:
 			return
 		state_return(&"Idle")
 		return
+
+
+func exit() -> void:
+	parent.stats.damage_taken.disconnect(player_damaged)
+	parent.stats.dead.disconnect(die)
+	parent.nyon_rainbow.visible = false

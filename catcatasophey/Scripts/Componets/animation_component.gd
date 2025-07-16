@@ -6,6 +6,7 @@ extends Node
 @export var claw_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer
 @export var hitbox_collision: CollisionShape2D
+@export var nyon_rainbow: Sprite2D
 
 enum _Direction {
 	RIGHT,
@@ -14,6 +15,7 @@ enum _Direction {
 
 var _last_direction: _Direction = _Direction.RIGHT
 
+#TODO: This needs to be updated to handle all characters not just player
 func flip_sprite(move_direction:float):
 	if move_direction == 0.0:
 		return
@@ -22,6 +24,8 @@ func flip_sprite(move_direction:float):
 	hitbox_collision.position.x = 22.0 if move_direction > 0 else -22.0
 	if claw_sprite != null:
 		claw_sprite.flip_h = false if move_direction < 0 else true
+	if nyon_rainbow != null:
+		nyon_rainbow.position.x = -36.0  if move_direction > 0 else 36.0
 
 func handle_move_animation(move_direction: float, is_running:bool = false) -> void:
 	if move_direction == 0.0:
@@ -70,5 +74,35 @@ func handle_crouch_animation() -> void:
 	animation_player.play(&"crouch")
 
 
-func handle_hurt_animation() -> void:
-	animation_player.play(&"hurt")
+func handle_glide_animation() -> void:
+	animation_player.play(&"glide")
+
+
+func handle_hurt_animation(last_state:StringName = &"") -> void:
+	match last_state:
+		&"Jump":
+			sprite.modulate = Color(100.0, 100.0, 100.0)
+			await get_tree().create_timer(.1).timeout
+			sprite.modulate = Color(1.0, 1.0, 1.0)
+			animation_player.animation_finished.emit(&"hurt")
+		&"Fall":
+			sprite.modulate = Color(100.0, 100.0, 100.0)
+			await get_tree().create_timer(.1).timeout
+			sprite.modulate = Color(1.0, 1.0, 1.0)
+			animation_player.animation_finished.emit(&"hurt")
+		&"Roll":
+			sprite.modulate = Color(100.0, 100.0, 100.0)
+			await get_tree().create_timer(.1).timeout
+			sprite.modulate = Color(1.0, 1.0, 1.0)
+			animation_player.animation_finished.emit(&"hurt")
+		&"Glide":
+			sprite.modulate = Color(100.0, 100.0, 100.0)
+			await get_tree().create_timer(.1).timeout
+			sprite.modulate = Color(1.0, 1.0, 1.0)
+			animation_player.animation_finished.emit(&"hurt")
+		_:
+			animation_player.play(&"hurt")
+
+
+func handle_death_animation() -> void:
+	animation_player.play(&"death")

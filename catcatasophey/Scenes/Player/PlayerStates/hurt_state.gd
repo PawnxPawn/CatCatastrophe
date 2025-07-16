@@ -3,7 +3,7 @@ extends State
 
 func enter() -> void:
 	parent.velocity = Vector2.ZERO
-	parent.animation_component.handle_hurt_animation()
+	parent.animation_component.handle_hurt_animation(parent.state_machine.get_last_state.name)
 	parent.animation_component.animation_player.animation_finished.connect(hurt_animation_finished)
 
 
@@ -19,7 +19,7 @@ func hurt_animation_finished(anim_name:StringName) -> void:
 			state_return(&"Attack")
 			return
 		if parent.input_component.get_crouch_held_input():
-			state_return(&"Crouch")
+			state_return(&"Crouch" if !parent.input_component.get_direction_input() else &"Roll")
 			return
 		state_return(&"Idle")
 		return
