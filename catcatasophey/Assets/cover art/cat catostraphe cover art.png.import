@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3f7kbbvfvhea"
-path="res://.godot/imported/bg2.png-e6756bf78f7b3b9095ef37f5741887bf.ctex"
+uid="uid://cmvqh3qkifi87"
+path="res://.godot/imported/cat catostraphe cover art.png-b625fff58ff83812777c70495b547a29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrounds/bg2.png"
-dest_files=["res://.godot/imported/bg2.png-e6756bf78f7b3b9095ef37f5741887bf.ctex"]
+source_file="res://Assets/cover art/cat catostraphe cover art.png"
+dest_files=["res://.godot/imported/cat catostraphe cover art.png-b625fff58ff83812777c70495b547a29.ctex"]
 
 [params]
 

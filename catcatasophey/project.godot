@@ -34,7 +34,10 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Assets/envirement/": "teal"
+"res://Assets/": "orange",
+"res://Scenes/": "blue",
+"res://Scripts/": "green",
+"res://Scripts/Componets/": "red"
 }
 
 [gui]

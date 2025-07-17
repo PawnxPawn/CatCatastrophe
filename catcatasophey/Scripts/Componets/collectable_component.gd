@@ -8,5 +8,5 @@ func _ready() -> void:
 
 func _item_pickup(body: Node2D) -> void:
 	if body is Player:
-		body.activate_ability(collectable_type)
+		body.activate_collectable(collectable_type)
 		get_parent().queue_free()

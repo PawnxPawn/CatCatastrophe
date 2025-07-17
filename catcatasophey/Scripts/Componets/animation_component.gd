@@ -21,7 +21,8 @@ func flip_sprite(move_direction:float):
 		return
 	
 	sprite.flip_h = false if move_direction < 0 else true
-	hitbox_collision.position.x = 22.0 if move_direction > 0 else -22.0
+	if hitbox_collision != null:
+		hitbox_collision.position.x = 22.0 if move_direction > 0 else -22.0
 	if claw_sprite != null:
 		claw_sprite.flip_h = false if move_direction < 0 else true
 	if nyon_rainbow != null:
@@ -42,16 +43,7 @@ func handle_move_animation(move_direction: float, is_running:bool = false) -> vo
 		animation_player.play(&"walk" if !is_running else &"run")
 
 func _handle_idle_animation() -> void:
-	match _last_direction:
-		_Direction.LEFT:
-			sprite.flip_h = false
-			animation_player.play(&"idle")
-		_Direction.RIGHT:
-			sprite.flip_h = true
-			animation_player.play(&"idle")
-		_:
-			sprite.flip_h = false
-			animation_player.play(&"idle")
+	animation_player.play(&"idle")
 
 
 func handle_jump_animation(is_falling:bool = false) -> void:

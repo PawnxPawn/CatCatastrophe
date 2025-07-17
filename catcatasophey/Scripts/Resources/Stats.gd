@@ -18,3 +18,8 @@ var health: int = max_health:
 			dead.emit()
 		else:
 			damage_taken.emit()
+
+var yarn_collected: int = 0:
+	set(value):
+		yarn_collected = value
+		print(yarn_collected)

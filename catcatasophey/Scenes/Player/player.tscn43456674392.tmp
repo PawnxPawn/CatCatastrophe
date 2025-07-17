@@ -1067,7 +1067,7 @@ _data = {
 &"walk": SubResource("Animation_4no11")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "input_component", "move_component", "animation_component", "damage_component", "hurtbox_component", "hitbox_component", "jump_componenet", "gravity_component", "knockback_componet")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "input_component", "move_component", "animation_component", "damage_component", "hurtbox_component", "hitbox_component", "jump_componenet", "gravity_component")]
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_jlvik")
@@ -1082,7 +1082,6 @@ hurtbox_component = NodePath("ComponentContainer/HurtboxComponent")
 hitbox_component = NodePath("ComponentContainer/HitboxComponent")
 jump_componenet = NodePath("ComponentContainer/JumpComponent")
 gravity_component = NodePath("ComponentContainer/GravityComponent")
-knockback_componet = NodePath("ComponentContainer/KnockbackComponent")
 
 [node name="CeilingCheckLeft" type="RayCast2D" parent="."]
 position = Vector2(-9, -11)
@@ -1213,6 +1212,7 @@ metadata/_custom_type_script = "uid://bmmwrmagic6gh"
 unique_name_in_owner = true
 script = ExtResource("7_06tpx")
 knockback_component = NodePath("../KnockbackComponent")
+iframe_time = 0.5
 metadata/_custom_type_script = "uid://bjervgf3bpuvi"
 
 [node name="JumpComponent" type="Node" parent="ComponentContainer" node_paths=PackedStringArray("gravity_component")]
@@ -1236,7 +1236,7 @@ debug_color = Color(0.94902, 0, 0, 0.419608)
 
 [node name="HitboxComponent" type="Area2D" parent="ComponentContainer"]
 collision_layer = 32
-collision_mask = 12
+collision_mask = 72
 script = ExtResource("20_rcvs5")
 metadata/_custom_type_script = "uid://cfk71aloaw2ap"
 
@@ -1248,7 +1248,6 @@ debug_color = Color(0, 0.647041, 0.22179, 0.42)
 
 [node name="KnockbackComponent" type="Node" parent="ComponentContainer"]
 script = ExtResource("28_ur3l4")
-knockback_strength = 300.0
 metadata/_custom_type_script = "uid://bd87ro2ka5rag"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

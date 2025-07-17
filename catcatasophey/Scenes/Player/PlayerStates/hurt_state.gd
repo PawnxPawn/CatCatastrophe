@@ -26,5 +26,9 @@ func hurt_animation_finished(anim_name:StringName) -> void:
 	
 
 
+func process_physics(_delta:float) -> void:
+	parent.velocity = parent.knockback_componet.apply_knockback(parent.damage_component.knockback_dir)
+
+
 func exit() -> void:
 	parent.animation_component.animation_player.animation_finished.disconnect(hurt_animation_finished)
