@@ -1,17 +1,28 @@
 extends AnimatedSprite2D
 
 @export var speed: float = 120.0
+@export var lifespan_time: float = 6.0
 
 #region Components
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
+@onready var hitbox_component_2: HitboxComponent = $HitboxComponent2
+@onready var hitbox_collision: CollisionShape2D = $HitboxComponent/CollisionShape2D
+@onready var hitbox_collision_2: CollisionShape2D = $HitboxComponent2/CollisionShape2D
+
 #endregion
 
 var is_moving: bool = true
+var lifespan_timer: Timer = Timer.new()
 
 func _ready() -> void:
 	hitbox_component.hitbox_hit.connect(projectile_hit)
-	animation_finished.connect(hit_animation_finished)
+	hitbox_component_2.hitbox_hit.connect(projectile_hit)
+	animation_finished.connect(remove_projectile)
+	add_child(lifespan_timer)
+	lifespan_timer.wait_time = lifespan_time
+	lifespan_timer.timeout.connect(remove_projectile)
+	lifespan_timer.start()
 
 
 func _physics_process(delta: float) -> void:
@@ -22,9 +33,10 @@ func _physics_process(delta: float) -> void:
 
 func projectile_hit() -> void:
 	is_moving = false
+	hitbox_collision.set_deferred("disabled", true)
+	hitbox_collision_2.set_deferred("disabled", true)
 	play("hit")
 
 
-func hit_animation_finished(anim_name:StringName) -> void:
-	if anim_name == &"hit":
-		queue_free()
+func remove_projectile() -> void:
+	queue_free()

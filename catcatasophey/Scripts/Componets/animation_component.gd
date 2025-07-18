@@ -15,18 +15,13 @@ enum _Direction {
 
 var _last_direction: _Direction = _Direction.RIGHT
 
-#TODO: This needs to be updated to handle all characters not just player
 func flip_sprite(move_direction:float):
 	if move_direction == 0.0:
 		return
 	
-	sprite.flip_h = false if move_direction < 0 else true
+	sprite.scale.x = -1.0 if move_direction < 0 else 1.0
 	if hitbox_collision != null:
-		hitbox_collision.position.x = 22.0 if move_direction > 0 else -22.0
-	if claw_sprite != null:
-		claw_sprite.flip_h = false if move_direction < 0 else true
-	if nyon_rainbow != null:
-		nyon_rainbow.position.x = -36.0  if move_direction > 0 else 36.0
+		hitbox_collision.position.x = 25.0 if move_direction > 0 else -25.0
 
 func handle_move_animation(move_direction: float, is_running:bool = false) -> void:
 	if move_direction == 0.0:
@@ -98,3 +93,7 @@ func handle_hurt_animation(last_state:StringName = &"") -> void:
 
 func handle_death_animation() -> void:
 	animation_player.play(&"death")
+
+
+func handle_start_animation() -> void:
+	animation_player.play(&"start")

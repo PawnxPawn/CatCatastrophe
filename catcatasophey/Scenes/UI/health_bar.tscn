@@ -1,0 +1,208 @@
+[gd_scene load_steps=18 format=3 uid="uid://cnsuajbvydfxi"]
+
+[ext_resource type="Script" uid="uid://b00rlci0mfqj6" path="res://Scenes/UI/health_bar.gd" id="1_4c3qa"]
+[ext_resource type="Texture2D" uid="uid://r5s50f0asyt2" path="res://Assets/milk hp bottle-Sheet.png" id="1_qyqjh"]
+[ext_resource type="Resource" uid="uid://bxb251in5rklo" path="res://Scenes/Player/PlayerResources/player_stats.tres" id="2_1s5oa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c3qa"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(0, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s5oa"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(41, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfw7x"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(82, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah7g7"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(123, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6po05"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(164, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdhhh"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(205, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh5ca"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(246, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqur4"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(287, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wge70"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(328, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g5y8"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(369, 0, 41, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82n3o"]
+atlas = ExtResource("1_qyqjh")
+region = Rect2(410, 0, 41, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5sgv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c3qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s5oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfw7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah7g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6po05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdhhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh5ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqur4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wge70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g5y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82n3o")
+}],
+"loop": false,
+"name": &"health1",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1s5oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c3qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s5oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfw7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah7g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6po05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdhhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh5ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqur4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wge70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g5y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82n3o")
+}],
+"loop": false,
+"name": &"health2",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfw7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c3qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s5oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfw7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah7g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6po05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdhhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh5ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqur4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wge70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g5y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82n3o")
+}],
+"loop": false,
+"name": &"health3",
+"speed": 5.0
+}]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4c3qa")
+player_stats = ExtResource("2_1s5oa")
+
+[node name="HealthContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health1" type="AnimatedSprite2D" parent="HealthContainer"]
+unique_name_in_owner = true
+position = Vector2(10, 12)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_o5sgv")
+animation = &"health1"
+
+[node name="Health2" type="AnimatedSprite2D" parent="HealthContainer"]
+unique_name_in_owner = true
+position = Vector2(26, 12)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1s5oa")
+animation = &"health2"
+
+[node name="Health3" type="AnimatedSprite2D" parent="HealthContainer"]
+unique_name_in_owner = true
+position = Vector2(42, 12)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_mfw7x")
+animation = &"health3"

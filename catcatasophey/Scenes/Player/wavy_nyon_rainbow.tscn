@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf1mynl87ausp"]
+[gd_scene load_steps=7 format=3 uid="uid://bf1mynl87ausp"]
 
 [ext_resource type="Texture2D" uid="uid://8qyhsiaist24" path="res://Assets/Player/ATTACK 1.png" id="1_hr18r"]
 [ext_resource type="Shader" uid="uid://qyt2e6tead8h" path="res://Scripts/Shaders/wavy.gdshader" id="2_mg2pv"]
@@ -7,6 +7,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_cmpii"]
 atlas = ExtResource("1_hr18r")
 region = Rect2(572.004, 464.98, 43.9897, 7.03622)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr18r"]
+atlas = ExtResource("1_hr18r")
+region = Rect2(604, 427, 12, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v244e"]
 shader = ExtResource("2_mg2pv")
@@ -20,9 +24,15 @@ shader_parameter/speed = 15.0
 scale = Vector2(1.3, 1.3)
 texture = SubResource("AtlasTexture_cmpii")
 
+[node name="NyonRainbow2" type="Sprite2D" parent="."]
+position = Vector2(-35, 0)
+scale = Vector2(1.3, 1.3)
+texture = SubResource("AtlasTexture_hr18r")
+flip_h = true
+
 [node name="WavyLinesFilter" type="Sprite2D" parent="."]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_v244e")
-position = Vector2(1.25, 0.837838)
-scale = Vector2(1.46591, 0.324324)
+position = Vector2(-7.12501, 1)
+scale = Vector2(1.64205, 0.324324)
 texture = ExtResource("3_l750n")

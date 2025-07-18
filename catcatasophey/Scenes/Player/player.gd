@@ -6,7 +6,10 @@ extends Character
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var cat_collision: CollisionShape2D = %CatCollision
 @onready var cat_roll_collision: CollisionShape2D = %CatRollCollision
-@onready var nyon_rainbow: Sprite2D = $AnimatedSprite2D/WavyNyonRainbow
+@onready var claw_attack: AnimatedSprite2D = %ClawAttack
+@onready var hitbox_collision: CollisionShape2D = %HitboxCollision
+@onready var nyon_rainbow: Sprite2D = %WavyNyonRainbow
+
 #endregion
 
 #region Resources

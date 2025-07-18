@@ -123,6 +123,17 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_m6tju")
 debug_color = Color(1.85303e-06, 0.647716, 0.203124, 0.42)
 
+[node name="HitboxComponent2" type="Area2D" parent="."]
+collision_layer = 64
+script = ExtResource("4_y22dr")
+is_enviorment_detectable = true
+metadata/_custom_type_script = "uid://cfk71aloaw2ap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent2"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_m6tju")
+debug_color = Color(1.85303e-06, 0.647716, 0.203124, 0.42)
+
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("5_0lpya")
 metadata/_custom_type_script = "uid://f24w6hdleftd"

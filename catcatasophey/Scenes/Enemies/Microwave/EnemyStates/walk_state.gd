@@ -16,6 +16,7 @@ func enter() -> void:
 	walk_timer.start()
 	parent.move_component.set_speed(Globals.MovementType.WALK)
 	parent.animation_component.handle_move_animation(random_direction)
+	parent.stats.damage_taken.connect(enemy_damaged)
 
 
 func process_physics(delta: float) -> void:
@@ -31,6 +32,10 @@ func process_physics(delta: float) -> void:
 	parent.move_component.handle_movement(parent, random_direction)
 
 
+func enemy_damaged() -> void:
+	state_return(&"Hurt")
+
+
 func timer_timeout() -> void:
 	var random_state = 0
 	match random_state:
@@ -44,3 +49,4 @@ func exit() -> void:
 	remove_child(walk_timer)
 	walk_timer.stop()
 	walk_timer.timeout.disconnect(timer_timeout)
+	parent.stats.damage_taken.disconnect(enemy_damaged)

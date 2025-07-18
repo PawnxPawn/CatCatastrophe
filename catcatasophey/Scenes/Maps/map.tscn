@@ -1,22 +1,18 @@
-[gd_scene load_steps=23 format=4 uid="uid://dxwwufhcabncj"]
+[gd_scene load_steps=20 format=4 uid="uid://dxwwufhcabncj"]
 
 [ext_resource type="PackedScene" uid="uid://mfqhiyrupch4" path="res://Scenes/Player/player.tscn" id="1_033m4"]
 [ext_resource type="Script" uid="uid://ia2dt0exbyu7" path="res://Scenes/Maps/lab.gd" id="1_kdlte"]
-[ext_resource type="PackedScene" uid="uid://n8efw5j2sisc" path="res://Scenes/objects/desks/desk_1.tscn" id="2_ww8yf"]
 [ext_resource type="Texture2D" uid="uid://bkptpvflrbayy" path="res://Assets/backgrounds/bg1.png" id="3_4i112"]
 [ext_resource type="PackedScene" uid="uid://dc5v2o7i1udig" path="res://Scenes/Collectables/attack_ability.tscn" id="4_b1vt7"]
 [ext_resource type="Texture2D" uid="uid://3f7kbbvfvhea" path="res://Assets/backgrounds/bg2.png" id="4_uf2qa"]
 [ext_resource type="PackedScene" uid="uid://ck4ois772clab" path="res://Scenes/Collectables/jump_ability.tscn" id="5_o5d27"]
-[ext_resource type="Texture2D" uid="uid://bh2rikxnyahis" path="res://Assets/backgrounds/bg3.png" id="5_ww8yf"]
 [ext_resource type="PackedScene" uid="uid://bcp7ecw8a7cni" path="res://Scenes/Collectables/double_jump.tscn" id="6_mahy4"]
-[ext_resource type="Texture2D" uid="uid://dfrnclbg7ladc" path="res://Assets/backgrounds/bg4.png" id="6_qxx83"]
 [ext_resource type="PackedScene" uid="uid://d0mi441xqlt8d" path="res://Scenes/Collectables/roll_ability.tscn" id="7_56xhb"]
-[ext_resource type="Texture2D" uid="uid://d2kkltm07w645" path="res://Assets/backgrounds/bg5.png" id="7_jc3tk"]
-[ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="8_4i112"]
 [ext_resource type="PackedScene" uid="uid://by17uqe452rqt" path="res://Scenes/Collectables/run_ability.tscn" id="8_l14b5"]
 [ext_resource type="Texture2D" uid="uid://d1by2e6iwj1c1" path="res://Assets/envirement/floor tiles for catastraphy.png" id="9_uf2qa"]
 [ext_resource type="PackedScene" uid="uid://h71vru0rffeh" path="res://Scenes/Collectables/yarn.tscn" id="11_o5d27"]
 [ext_resource type="PackedScene" uid="uid://qhbgo25ivo8k" path="res://Scenes/Enemies/Microwave/micowave.tscn" id="17_mahy4"]
+[ext_resource type="Script" uid="uid://dtu5o7h6l8r5a" path="res://Scripts/Resources/Stats.gd" id="18_56xhb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf2qa"]
 load_path = "res://.godot/imported/Objects.png-e20fecb5adbf99e6c4c6013107f917af.ctex"
@@ -35,8 +31,10 @@ texture_region_size = Vector2i(29, 29)
 2:0/0 = 0
 3:0/0 = 0
 3:0/0/probability = 0.2
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 4:0/0 = 0
 4:0/0/probability = 0.2
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 5:0/0 = 0
 5:0/0/probability = 0.2
 0:1/0 = 0
@@ -45,20 +43,26 @@ texture_region_size = Vector2i(29, 29)
 2:1/0/probability = 0.33
 3:1/0 = 0
 3:1/0/probability = 0.2
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 4:1/0 = 0
 4:1/0/probability = 0.2
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 5:1/0 = 0
 6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -10.5, 14.5, -10.5, 14.5, 14.5, -14.5, 14.5)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 6:1/0 = 0
 7:0/0 = 0
 7:1/0 = 0
 8:0/0 = 0
 8:1/0 = 0
 9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 13:0/0 = 0
 14:0/0 = 0
 15:0/0 = 0
@@ -70,8 +74,11 @@ texture_region_size = Vector2i(29, 29)
 21:0/0 = 0
 9:1/0 = 0
 10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 12:1/0 = 0
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -11.5, 14.5, -11, 14.5, 14.5, -14.5, 14.5)
 13:1/0 = 0
 14:1/0 = 0
 15:1/0 = 0
@@ -118,7 +125,17 @@ custom_data_layer_0/name = "Health"
 custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_ww8yf")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf2qa"]
+[sub_resource type="Resource" id="Resource_l14b5"]
+resource_local_to_scene = true
+script = ExtResource("18_56xhb")
+max_health = 3
+metadata/_custom_type_script = "uid://dtu5o7h6l8r5a"
+
+[sub_resource type="Resource" id="Resource_nuq4g"]
+resource_local_to_scene = true
+script = ExtResource("18_56xhb")
+max_health = 3
+metadata/_custom_type_script = "uid://dtu5o7h6l8r5a"
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_kdlte")
@@ -127,36 +144,22 @@ script = ExtResource("1_kdlte")
 position = Vector2(556, 156)
 texture = SubResource("AtlasTexture_ww8yf")
 
-[node name="Desk1" parent="." instance=ExtResource("2_ww8yf")]
-
 [node name="Tilesets" type="Node2D" parent="."]
 
 [node name="Ground" type="TileMapLayer" parent="Tilesets"]
-tile_map_data = PackedByteArray("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")
+tile_map_data = PackedByteArray("AAAAAAYAAAAJAAAAAAABAAYAAAAJAAAAAAACAAYAAAAJAAAAAAADAAYAAAAJAAAAAAAEAAYAAAAJAAAAAAAFAAYAAAAGAAAAAAAGAAYAAAAKAAAAAAAHAAYAAAAJAAAAAAAIAAYAAAAJAAAAAAAJAAYAAAAJAAAAAAAKAAYAAAAJAAAAAAALAAYAAAAJAAAAAAAMAAYAAAAKAAAAAAANAAYAAAAKAAAAAAAOAAYAAAAJAAAAAAAPAAYAAAAJAAAAAAAQAAYAAAAJAAAAAAARAAYAAAAKAAAAAAASAAYAAAAKAAAAAAATAAYAAAAJAAAAAAAUAAYAAAAJAAAAAAAVAAYAAAAJAAAAAAAWAAYAAAAJAAAAAAAXAAYAAAAJAAAAAAAYAAYAAAAJAAAAAAAZAAYAAAAJAAAAAAAaAAYAAAAJAAAAAAAbAAYAAAAJAAAAAAADAAMAAAAJAAAAAAADAAQAAAAMAAAAAAADAAUAAAAMAAEAAAAEAAMAAAAJAAAAAAAEAAQAAAALAAAAAAAEAAUAAAALAAEAAAAFAAMAAAAJAAAAAAAOAAUAAAAKAAAAAAAPAAUAAAAKAAAAAAAQAAUAAAAKAAAAAAAcAAIAAAAJAAAAAAAcAAQAAAAJAAAAAAAdAAIAAAAJAAAAAAAcAAYAAAAJAAAAAAAdAAYAAAAKAAAAAAAeAAYAAAAJAAAAAAAfAAYAAAAJAAAAAAAgAAYAAAAJAAAAAAAhAAYAAAAJAAAAAAAiAAYAAAAJAAAAAAAjAAYAAAAJAAAAAAAkAAYAAAAJAAAAAAAlAAYAAAAJAAAAAAAmAAYAAAAJAAAAAAAnAAYAAAAJAAAAAAAoAAYAAAAKAAAAAAApAAYAAAAKAAAAAAAqAAYAAAAJAAAAAAArAAYAAAAJAAAAAAAsAAYAAAAJAAAAAAAtAAYAAAAJAAAAAAAuAAYAAAAJAAAAAAAvAAYAAAAKAAAAAAAwAAYAAAAKAAAAAAAxAAYAAAAJAAAAAAAyAAYAAAAJAAAAAAAzAAYAAAAJAAAAAAA0AAYAAAAJAAAAAAA1AAYAAAAJAAAAAAA2AAYAAAAKAAAAAAA3AAYAAAAKAAAAAAA4AAYAAAAKAAAAAAA5AAYAAAAKAAAAAAA6AAYAAAAKAAAAAAAaAAMAAAAJAAAAAAAbAAMAAAAJAAAAAAAfAAEAAAAKAAAAAAAgAAEAAAAJAAAAAAAhAAEAAAAJAAAAAAAiAAEAAAAJAAAAAAAkAAEAAAAKAAAAAAAjAAEAAAAJAAAAAAAlAAEAAAAJAAAAAAAmAAEAAAAJAAAAAAAnAAEAAAAJAAAAAAAoAAAAAAAKAAAAAAApAAAAAAAJAAAAAAAqAAAAAAAKAAAAAAArAAAAAAAJAAAAAAAtAAAAAAAJAAAAAAAsAAAAAAAJAAAAAAAuAAAAAAAJAAAAAAAvAAAAAAAJAAAAAAAwAAAAAAAJAAAAAAAxAAAAAAAJAAAAAAAyAAAAAAAJAAAAAAAzAAAAAAAJAAAAAAA0AAAAAAAJAAAAAAAZAAAAAAAJAAAAAAAaAAAAAAAJAAAAAAAbAP//AAAJAAAAAAAcAP//AAAKAAAAAAAdAP//AAAKAAAAAAAaAPz/AAAJAAAAAAAaAP3/AAAJAAAAAAAZAP3/AAAJAAAAAAAZAPz/AAAJAAAAAAAcAPz/AAAJAAAAAAAdAPz/AAAJAAAAAAAdAAQAAAAJAAAAAAAVAAIAAAAJAAAAAAAFAAQAAAAMAAAAAAAFAAUAAAAMAAEAAAA=")
 tile_set = SubResource("TileSet_qxx83")
 
 [node name="Player" parent="." instance=ExtResource("1_033m4")]
 position = Vector2(748, 175)
 
-[node name="HitboxComponent" type="Area2D" parent="."]
-position = Vector2(413, 15)
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("8_4i112")
-metadata/_custom_type_script = "uid://cfk71aloaw2ap"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(24, 74)
-shape = SubResource("RectangleShape2D_uf2qa")
-debug_color = Color(0.74534, 0.344606, 0, 0.42)
-
 [node name="Background" type="Node2D" parent="."]
 
 [node name="BG1Parllax" type="Parallax2D" parent="Background"]
 z_index = -101
-scroll_scale = Vector2(0.8, 0.1)
+scroll_scale = Vector2(0.8, 0.005)
 scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
+repeat_size = Vector2(2560, 760)
 
 [node name="BG1TextureRect" type="TextureRect" parent="Background/BG1Parllax"]
 offset_right = 40.0
@@ -165,51 +168,16 @@ texture = ExtResource("3_4i112")
 metadata/_edit_use_anchors_ = true
 
 [node name="BG2Parllax" type="Parallax2D" parent="Background"]
-z_index = -102
+z_index = -104
 scroll_scale = Vector2(0.6, 0.2)
 scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
+repeat_size = Vector2(1280, 760)
 
 [node name="BG2TextureRect" type="TextureRect" parent="Background/BG2Parllax"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_uf2qa")
 metadata/_edit_use_anchors_ = true
-
-[node name="BG3Parllax" type="Parallax2D" parent="Background"]
-z_index = -103
-scroll_scale = Vector2(0.4, 0.3)
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG3TextureRect" type="TextureRect" parent="Background/BG3Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_ww8yf")
-stretch_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="BG4Parllax" type="Parallax2D" parent="Background"]
-z_index = -104
-scroll_scale = Vector2(0.2, 0.4)
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG4TextureRect" type="TextureRect" parent="Background/BG4Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_qxx83")
-metadata/_edit_use_anchors_ = true
-
-[node name="BG5Parllax" type="Parallax2D" parent="Background"]
-z_index = -105
-scroll_offset = Vector2(0, -169)
-repeat_size = Vector2(320, 190)
-
-[node name="BG5TextureRect" type="TextureRect" parent="Background/BG5Parllax"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("7_jc3tk")
 
 [node name="Yarn" type="Node2D" parent="."]
 
@@ -243,7 +211,11 @@ position = Vector2(1384, 145)
 
 [node name="Micowave" parent="Enemies" instance=ExtResource("17_mahy4")]
 position = Vector2(1012, 13)
+stats = SubResource("Resource_l14b5")
 
 [node name="Micowave2" parent="Enemies" instance=ExtResource("17_mahy4")]
 position = Vector2(624, 36)
+stats = SubResource("Resource_nuq4g")
 disable_walk = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

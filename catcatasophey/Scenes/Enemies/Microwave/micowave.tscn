@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://qhbgo25ivo8k"]
+[gd_scene load_steps=71 format=3 uid="uid://qhbgo25ivo8k"]
 
 [ext_resource type="Texture2D" uid="uid://4c31u67s7lp8" path="res://Assets/microwave/All.png" id="1_kf8ku"]
 [ext_resource type="Script" uid="uid://dpey3uxamxrlp" path="res://Scenes/Enemies/Microwave/micowave.gd" id="1_ogo5i"]
@@ -7,14 +7,19 @@
 [ext_resource type="Script" uid="uid://bmmwrmagic6gh" path="res://Scripts/Componets/animation_component.gd" id="2_r132x"]
 [ext_resource type="Script" uid="uid://c5srrmabipyo6" path="res://Scripts/Componets/hurtbox_component.gd" id="3_kkklk"]
 [ext_resource type="Script" uid="uid://f24w6hdleftd" path="res://Scripts/Componets/move_component.gd" id="4_l6km8"]
-[ext_resource type="Script" uid="uid://h8gesqeqpcqe" path="res://Scenes/Enemies/Microwave/state/idle_state.gd" id="4_y264q"]
-[ext_resource type="Script" uid="uid://omaueh3mcb3p" path="res://Scenes/Enemies/Microwave/state/walk_state.gd" id="5_ele2i"]
+[ext_resource type="Script" uid="uid://h8gesqeqpcqe" path="res://Scenes/Enemies/Microwave/EnemyStates/idle_state.gd" id="4_y264q"]
+[ext_resource type="Script" uid="uid://omaueh3mcb3p" path="res://Scenes/Enemies/Microwave/EnemyStates/walk_state.gd" id="5_ele2i"]
 [ext_resource type="Script" uid="uid://bjervgf3bpuvi" path="res://Scripts/Componets/damage_component.gd" id="5_wly4h"]
 [ext_resource type="Script" uid="uid://dxuavlj4ittow" path="res://Scripts/StateMachine/base_state.gd" id="6_3ddu2"]
 [ext_resource type="Script" uid="uid://2it8hwg1a6hh" path="res://Scripts/Componets/projectile_component.gd" id="6_kkklk"]
 [ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="8_2rxdc"]
+[ext_resource type="Script" uid="uid://fkyhvi0uc88a" path="res://Scenes/Enemies/Microwave/EnemyStates/hurt_state.gd" id="8_q0r6d"]
+[ext_resource type="Script" uid="uid://cdmtyii6qq3kq" path="res://Scenes/Enemies/Microwave/EnemyStates/attack_state.gd" id="9_y1uxm"]
 [ext_resource type="PackedScene" uid="uid://c85xr0htfa1sa" path="res://Scenes/Enemies/Projectile/projectile.tscn" id="9_y264q"]
+[ext_resource type="Script" uid="uid://dena2mld4ecqg" path="res://Scenes/Enemies/Microwave/dead.gd" id="10_ipkjy"]
 [ext_resource type="Script" uid="uid://team786bu0pe" path="res://Scripts/Componets/gravity_component.gd" id="13_3ddu2"]
+[ext_resource type="Script" uid="uid://bd87ro2ka5rag" path="res://Scripts/Componets/knockback_component.gd" id="18_gtfyf"]
+[ext_resource type="Script" uid="uid://3in6oybdi6my" path="res://Scripts/Componets/detection_area_component.gd" id="20_6qumc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogo5i"]
 size = Vector2(40, 25)
@@ -325,9 +330,11 @@ height = 40.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y264q"]
 size = Vector2(48, 27)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqljv"]
+radius = 133.184
+
 [sub_resource type="Animation" id="Animation_ele2i"]
 length = 2.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -352,10 +359,23 @@ tracks/1/keys = {
 "update": 1,
 "values": ["attack"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"launch_projectile"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_3ddu2"]
 length = 1.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -383,7 +403,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2rxdc"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -411,7 +430,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_l8roc"]
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -503,7 +521,7 @@ _data = {
 &"walk": SubResource("Animation_y1uxm")
 }
 
-[node name="Micowave" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "move_component", "animation_component", "damage_component", "gravity_component", "projectile_component")]
+[node name="Micowave" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "move_component", "animation_component", "damage_component", "hurtbox_component", "hitbox_component", "gravity_component", "projectile_component", "knockback_componet")]
 collision_layer = 4
 script = ExtResource("1_ogo5i")
 stats = ExtResource("2_l8roc")
@@ -511,8 +529,11 @@ state_machine = NodePath("StateMachine")
 move_component = NodePath("Components/MovementComponent")
 animation_component = NodePath("Components/AnimationComponent")
 damage_component = NodePath("Components/DamageComponent")
+hurtbox_component = NodePath("Components/HurtboxComponent")
+hitbox_component = NodePath("Components/HitboxComponent")
 gravity_component = NodePath("Components/GravityComponent")
 projectile_component = NodePath("Components/ProjectileComponent")
+knockback_componet = NodePath("Components/KnockbackComponent")
 
 [node name="MicrowaveCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.5)
@@ -520,7 +541,8 @@ shape = SubResource("RectangleShape2D_ogo5i")
 
 [node name="MicrowaveSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y7nc1")
-animation = &"attack"
+animation = &"idle"
+flip_h = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("2_l6km8")
@@ -544,11 +566,17 @@ script = ExtResource("6_3ddu2")
 metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
 [node name="Hurt" type="Node" parent="StateMachine"]
-script = ExtResource("6_3ddu2")
+script = ExtResource("8_q0r6d")
 metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
 [node name="Attack" type="Node" parent="StateMachine"]
-script = ExtResource("6_3ddu2")
+script = ExtResource("9_y1uxm")
+metadata/_custom_type_script = "uid://dxuavlj4ittow"
+
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox_collision", "hurtbox_collision")]
+script = ExtResource("10_ipkjy")
+hitbox_collision = NodePath("../../Components/HitboxComponent/CollisionShape2D")
+hurtbox_collision = NodePath("../../Components/HurtboxComponent/CollisionShape2D")
 metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
 [node name="Components" type="Node2D" parent="."]
@@ -589,8 +617,9 @@ walk_speed = 50.0
 run_speed = 100.0
 metadata/_custom_type_script = "uid://f24w6hdleftd"
 
-[node name="DamageComponent" type="Node" parent="Components"]
+[node name="DamageComponent" type="Node" parent="Components" node_paths=PackedStringArray("knockback_component")]
 script = ExtResource("5_wly4h")
+knockback_component = NodePath("../KnockbackComponent")
 metadata/_custom_type_script = "uid://bjervgf3bpuvi"
 
 [node name="ProjectileComponent" type="Node" parent="Components" node_paths=PackedStringArray("fire_location", "sprite")]
@@ -606,6 +635,20 @@ position = Vector2(0, 6)
 [node name="GravityComponent" type="Node" parent="Components"]
 script = ExtResource("13_3ddu2")
 metadata/_custom_type_script = "uid://team786bu0pe"
+
+[node name="KnockbackComponent" type="Node" parent="Components"]
+script = ExtResource("18_gtfyf")
+metadata/_custom_type_script = "uid://bd87ro2ka5rag"
+
+[node name="DetectionAreaComponent" type="Area2D" parent="Components"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("20_6qumc")
+metadata/_custom_type_script = "uid://3in6oybdi6my"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/DetectionAreaComponent"]
+shape = SubResource("CircleShape2D_wqljv")
+debug_color = Color(0.6015, 0.527297, 0.366406, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

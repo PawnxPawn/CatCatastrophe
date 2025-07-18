@@ -12,6 +12,7 @@ var current_speed: float = walk_speed
 
 func handle_movement(body: CharacterBody2D, direction: float) -> void:
 	body.velocity = Vector2(direction * current_speed, body.velocity.y)
+	
 
 
 func handle_projectile_movement(body:Node2D, speed:float, direction:float, delta:float) -> void:

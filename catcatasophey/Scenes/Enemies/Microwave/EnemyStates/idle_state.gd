@@ -16,6 +16,7 @@ func enter() -> void:
 	idle_timer.timeout.connect(idle_timeout)
 	idle_timer.start()
 	
+	parent.stats.damage_taken.connect(enemy_damaged)
 	parent.animation_component._handle_idle_animation()
 
 
@@ -30,8 +31,15 @@ func process_physics(delta:float) -> void:
 func idle_timeout() -> void:
 	if !parent.disable_walk:
 		state_return(&"Walk")
+		return
+	state_return(&"Attack")
+
+
+func enemy_damaged() -> void:
+	state_return(&"Hurt")
 
 
 func exit() -> void:
 	remove_child(idle_timer)
 	idle_timer.timeout.disconnect(idle_timeout)
+	parent.stats.damage_taken.disconnect(enemy_damaged)
