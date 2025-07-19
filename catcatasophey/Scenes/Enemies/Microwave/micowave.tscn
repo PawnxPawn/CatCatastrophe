@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://qhbgo25ivo8k"]
+[gd_scene load_steps=77 format=3 uid="uid://qhbgo25ivo8k"]
 
 [ext_resource type="Texture2D" uid="uid://4c31u67s7lp8" path="res://Assets/microwave/All.png" id="1_kf8ku"]
 [ext_resource type="Script" uid="uid://dpey3uxamxrlp" path="res://Scenes/Enemies/Microwave/micowave.gd" id="1_ogo5i"]
@@ -11,12 +11,13 @@
 [ext_resource type="Script" uid="uid://omaueh3mcb3p" path="res://Scenes/Enemies/Microwave/EnemyStates/walk_state.gd" id="5_ele2i"]
 [ext_resource type="Script" uid="uid://bjervgf3bpuvi" path="res://Scripts/Componets/damage_component.gd" id="5_wly4h"]
 [ext_resource type="Script" uid="uid://2it8hwg1a6hh" path="res://Scripts/Componets/projectile_component.gd" id="6_kkklk"]
-[ext_resource type="Script" uid="uid://dvgq2vdqd3g1" path="res://Scenes/Enemies/Microwave/alerted.gd" id="7_wqljv"]
+[ext_resource type="Script" uid="uid://dvgq2vdqd3g1" path="res://Scenes/Enemies/Microwave/EnemyStates/alerted.gd" id="7_wqljv"]
 [ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="8_2rxdc"]
+[ext_resource type="Script" uid="uid://wnnu4hlv5mm" path="res://Scenes/Enemies/Microwave/EnemyStates/confused_state.gd" id="8_bm7w4"]
 [ext_resource type="Script" uid="uid://fkyhvi0uc88a" path="res://Scenes/Enemies/Microwave/EnemyStates/hurt_state.gd" id="8_q0r6d"]
 [ext_resource type="Script" uid="uid://cdmtyii6qq3kq" path="res://Scenes/Enemies/Microwave/EnemyStates/attack_state.gd" id="9_y1uxm"]
 [ext_resource type="PackedScene" uid="uid://c85xr0htfa1sa" path="res://Scenes/Enemies/Projectile/projectile.tscn" id="9_y264q"]
-[ext_resource type="Script" uid="uid://dena2mld4ecqg" path="res://Scenes/Enemies/Microwave/dead.gd" id="10_ipkjy"]
+[ext_resource type="Script" uid="uid://dena2mld4ecqg" path="res://Scenes/Enemies/Microwave/EnemyStates/dead.gd" id="10_ipkjy"]
 [ext_resource type="Script" uid="uid://team786bu0pe" path="res://Scripts/Componets/gravity_component.gd" id="13_3ddu2"]
 [ext_resource type="Script" uid="uid://bd87ro2ka5rag" path="res://Scripts/Componets/knockback_component.gd" id="18_gtfyf"]
 [ext_resource type="Script" uid="uid://3in6oybdi6my" path="res://Scripts/Componets/detection_area_component.gd" id="20_6qumc"]
@@ -362,7 +363,6 @@ radius = 133.184
 
 [sub_resource type="Animation" id="Animation_ele2i"]
 length = 2.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -404,7 +404,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_m70i3"]
 length = 0.428571
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -432,7 +431,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_3ddu2"]
 length = 1.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -460,7 +458,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2rxdc"]
 length = 0.428571
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -488,7 +485,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_l8roc"]
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -603,8 +599,7 @@ shape = SubResource("RectangleShape2D_ogo5i")
 
 [node name="MicrowaveSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y7nc1")
-animation = &"detected"
-frame_progress = 0.215222
+animation = &"attack"
 flip_h = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
@@ -626,6 +621,10 @@ metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
 [node name="Alerted" type="Node" parent="StateMachine"]
 script = ExtResource("7_wqljv")
+metadata/_custom_type_script = "uid://dxuavlj4ittow"
+
+[node name="Confused" type="Node" parent="StateMachine"]
+script = ExtResource("8_bm7w4")
 metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
 [node name="Hurt" type="Node" parent="StateMachine"]
@@ -712,15 +711,20 @@ metadata/_custom_type_script = "uid://3in6oybdi6my"
 shape = SubResource("CircleShape2D_wqljv")
 debug_color = Color(0.6015, 0.527297, 0.366406, 0.42)
 
-[node name="LineOfSightComponent" type="Node2D" parent="Components"]
+[node name="LineOfSightComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("detection_area_component")]
 script = ExtResource("21_wqljv")
+detection_area_component = NodePath("../DetectionAreaComponent")
+detection_range = 100.0
 metadata/_custom_type_script = "uid://bupniunnfyq68"
 
 [node name="RayCast2D" type="RayCast2D" parent="Components/LineOfSightComponent"]
+collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="Components/LineOfSightComponent"]
+collision_mask = 3
 
 [node name="RayCast2D3" type="RayCast2D" parent="Components/LineOfSightComponent"]
+collision_mask = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -25,13 +25,10 @@ func process_physics(delta: float) -> void:
 	if !parent.is_on_floor():
 		parent.velocity.y += parent.gravity_component.apply_fall_gravity() * delta
 
-	if parent.in_alert_mode:
-		alert_follow(delta)
-		return
 	patrol(delta)
 
 
-func alert_follow(delta) -> void:
+func alert_follow(_delta) -> void:
 	var direction = (parent.player_position.x - parent.global_position.x) * -1
 	parent.animation_component.flip_sprite(direction)
 	
@@ -53,7 +50,7 @@ func alert_follow(delta) -> void:
 	
 
 
-func patrol(delta: float) -> void:
+func patrol(_delta: float) -> void:
 	if !ground_detection_l.is_colliding():
 		random_direction = 1.0
 	elif  !ground_detection_r.is_colliding():
@@ -75,6 +72,8 @@ func timer_timeout() -> void:
 func player_detected() -> void:
 	if !parent.in_alert_mode:
 		state_return(&"Alerted")
+		return
+	state_return(&"Attack")
 
 
 func exit() -> void:

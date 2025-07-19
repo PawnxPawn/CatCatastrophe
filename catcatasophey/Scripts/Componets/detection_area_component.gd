@@ -18,4 +18,4 @@ func _player_detected(body: Node2D) -> void:
 
 func _player_left_detection(body: Node2D) -> void:
 	if body is not Player: return
-	player_left_dection.emit(body)
+	player_left_dection.emit()

@@ -28,7 +28,7 @@ func idle_timeout() -> void:
 	if !parent.disable_walk:
 		state_return(&"Walk")
 		return
-	state_return(&"Attack")
+	state_return(&"Idle")
 
 
 func player_detected() -> void:

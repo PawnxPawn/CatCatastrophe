@@ -8,5 +8,5 @@ extends Node
 func fire_projectile() -> void:
 	var projectile_instantiated = projectile_scene.instantiate()
 	projectile_instantiated.position = fire_location.position
-	projectile_instantiated.flip_h = sprite.flip_h
+	projectile_instantiated.flip_h = true if sprite.scale.x == 1.0 else false
 	get_parent().add_child(projectile_instantiated)

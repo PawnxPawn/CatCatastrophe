@@ -1,6 +1,8 @@
 extends State
 
 func enter() -> void:
+	parent.velocity.x = 0.0
+	parent.animation_component.flip_sprite(parent.player_position.x - parent.global_position.x)
 	parent.animation_component.handle_attack_animation()
 	parent.animation_component.animation_player.animation_finished.connect(change_state)
 	parent.stats.damage_taken.connect(enemy_damaged)
