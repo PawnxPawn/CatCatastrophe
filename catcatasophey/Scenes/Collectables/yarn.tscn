@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://h71vru0rffeh"]
+[gd_scene load_steps=4 format=3 uid="uid://h71vru0rffeh"]
 
+[ext_resource type="Texture2D" uid="uid://p2yv46i5gpyk" path="res://Assets/yarn ball.png" id="1_hne1w"]
 [ext_resource type="Script" uid="uid://dtbsxsd28gjk0" path="res://Scripts/Componets/collectable_component.gd" id="2_12bte"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_445b2"]
@@ -7,6 +8,7 @@ size = Vector2(27, 30)
 
 [node name="Yarn" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hne1w")
 offset = Vector2(6, 0)
 region_rect = Rect2(0, 0, 37, 30)
 
