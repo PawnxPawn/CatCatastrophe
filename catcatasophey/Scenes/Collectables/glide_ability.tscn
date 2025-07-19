@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhkuwmh4mdkd"]
+
+[ext_resource type="Texture2D" uid="uid://8ys1114of5ua" path="res://Assets/Powerups.png" id="1_q3wln"]
+[ext_resource type="Script" uid="uid://dtbsxsd28gjk0" path="res://Scripts/Componets/collectable_component.gd" id="2_vixc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4a77"]
+atlas = ExtResource("1_q3wln")
+region = Rect2(33, 59, 20, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4duc"]
+atlas = ExtResource("1_q3wln")
+region = Rect2(34, 4, 11, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e07d"]
+size = Vector2(23, 29)
+
+[node name="glideability" type="Sprite2D"]
+texture = SubResource("AtlasTexture_b4a77")
+
+[node name="AbilityIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = SubResource("AtlasTexture_m4duc")
+
+[node name="CollectableComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("2_vixc5")
+metadata/_custom_type_script = "uid://dtbsxsd28gjk0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2e07d")
