@@ -1337,3 +1337,4 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -65)

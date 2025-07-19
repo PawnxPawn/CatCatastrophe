@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Cattack.mp3-b2112f1fd98d418823c234688ab88fbb.
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

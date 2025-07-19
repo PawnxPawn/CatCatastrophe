@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Catastrophe.mp3-a8693b89cd4686743c415c0122a6b
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
