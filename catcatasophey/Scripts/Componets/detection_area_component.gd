@@ -1,8 +1,10 @@
 class_name DetectionAreaComponent
 extends Area2D
 
-signal player_detected
-signal player_left_dection
+signal player_detected(player)
+signal player_left_dection()
+
+
 
 func _ready() -> void:
 	body_entered.connect(_player_detected)
@@ -11,9 +13,9 @@ func _ready() -> void:
 
 func _player_detected(body: Node2D) -> void:
 	if body is not Player: return
-	player_detected.emit()
+	player_detected.emit(body)
 
 
 func _player_left_detection(body: Node2D) -> void:
 	if body is not Player: return
-	player_left_dection.emit()
+	player_left_dection.emit(body)

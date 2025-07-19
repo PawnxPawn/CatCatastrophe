@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://qhbgo25ivo8k"]
+[gd_scene load_steps=76 format=3 uid="uid://qhbgo25ivo8k"]
 
 [ext_resource type="Texture2D" uid="uid://4c31u67s7lp8" path="res://Assets/microwave/All.png" id="1_kf8ku"]
 [ext_resource type="Script" uid="uid://dpey3uxamxrlp" path="res://Scenes/Enemies/Microwave/micowave.gd" id="1_ogo5i"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://h8gesqeqpcqe" path="res://Scenes/Enemies/Microwave/EnemyStates/idle_state.gd" id="4_y264q"]
 [ext_resource type="Script" uid="uid://omaueh3mcb3p" path="res://Scenes/Enemies/Microwave/EnemyStates/walk_state.gd" id="5_ele2i"]
 [ext_resource type="Script" uid="uid://bjervgf3bpuvi" path="res://Scripts/Componets/damage_component.gd" id="5_wly4h"]
-[ext_resource type="Script" uid="uid://dxuavlj4ittow" path="res://Scripts/StateMachine/base_state.gd" id="6_3ddu2"]
 [ext_resource type="Script" uid="uid://2it8hwg1a6hh" path="res://Scripts/Componets/projectile_component.gd" id="6_kkklk"]
+[ext_resource type="Script" uid="uid://dvgq2vdqd3g1" path="res://Scenes/Enemies/Microwave/alerted.gd" id="7_wqljv"]
 [ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="8_2rxdc"]
 [ext_resource type="Script" uid="uid://fkyhvi0uc88a" path="res://Scenes/Enemies/Microwave/EnemyStates/hurt_state.gd" id="8_q0r6d"]
 [ext_resource type="Script" uid="uid://cdmtyii6qq3kq" path="res://Scenes/Enemies/Microwave/EnemyStates/attack_state.gd" id="9_y1uxm"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://team786bu0pe" path="res://Scripts/Componets/gravity_component.gd" id="13_3ddu2"]
 [ext_resource type="Script" uid="uid://bd87ro2ka5rag" path="res://Scripts/Componets/knockback_component.gd" id="18_gtfyf"]
 [ext_resource type="Script" uid="uid://3in6oybdi6my" path="res://Scripts/Componets/detection_area_component.gd" id="20_6qumc"]
+[ext_resource type="Script" uid="uid://bupniunnfyq68" path="res://Scripts/Componets/line_of_sight_component.gd" id="21_wqljv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogo5i"]
 size = Vector2(40, 25)
@@ -71,6 +72,18 @@ region = Rect2(1488, 0, 62, 40)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ddu2"]
 atlas = ExtResource("1_kf8ku")
 region = Rect2(1550, 0, 62, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmmc1"]
+atlas = ExtResource("1_kf8ku")
+region = Rect2(2356, 0, 62, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwo7m"]
+atlas = ExtResource("1_kf8ku")
+region = Rect2(2418, 0, 62, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srtnw"]
+atlas = ExtResource("1_kf8ku")
+region = Rect2(2480, 0, 62, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2rxdc"]
 atlas = ExtResource("1_kf8ku")
@@ -221,6 +234,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jmmc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwo7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srtnw")
+}],
+"loop": true,
+"name": &"confusion",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2rxdc")
 }, {
 "duration": 1.0,
@@ -260,7 +287,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"detected",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -335,6 +362,7 @@ radius = 133.184
 
 [sub_resource type="Animation" id="Animation_ele2i"]
 length = 2.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -374,8 +402,37 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_m70i3"]
+length = 0.428571
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MicrowaveSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.285714),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MicrowaveSprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["confusion"]
+}
+
 [sub_resource type="Animation" id="Animation_3ddu2"]
 length = 1.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -402,7 +459,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_2rxdc"]
-length = 0.6
+length = 0.428571
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -410,7 +468,7 @@ tracks/0/path = NodePath("MicrowaveSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
+"times": PackedFloat32Array(0, 0.142857, 0.285714),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -430,6 +488,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_l8roc"]
 length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -514,6 +573,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gtfyf"]
 _data = {
 &"attack": SubResource("Animation_ele2i"),
+&"confusion": SubResource("Animation_m70i3"),
 &"death": SubResource("Animation_3ddu2"),
 &"detected": SubResource("Animation_2rxdc"),
 &"hurt": SubResource("Animation_l8roc"),
@@ -521,7 +581,7 @@ _data = {
 &"walk": SubResource("Animation_y1uxm")
 }
 
-[node name="Micowave" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "move_component", "animation_component", "damage_component", "hurtbox_component", "hitbox_component", "gravity_component", "projectile_component", "knockback_componet")]
+[node name="Micowave" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "move_component", "animation_component", "damage_component", "hurtbox_component", "hitbox_component", "gravity_component", "projectile_component", "knockback_componet", "detection_area_component", "line_of_sight_component")]
 collision_layer = 4
 script = ExtResource("1_ogo5i")
 stats = ExtResource("2_l8roc")
@@ -534,6 +594,8 @@ hitbox_component = NodePath("Components/HitboxComponent")
 gravity_component = NodePath("Components/GravityComponent")
 projectile_component = NodePath("Components/ProjectileComponent")
 knockback_componet = NodePath("Components/KnockbackComponent")
+detection_area_component = NodePath("Components/DetectionAreaComponent")
+line_of_sight_component = NodePath("Components/LineOfSightComponent")
 
 [node name="MicrowaveCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.5)
@@ -541,7 +603,8 @@ shape = SubResource("RectangleShape2D_ogo5i")
 
 [node name="MicrowaveSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y7nc1")
-animation = &"idle"
+animation = &"detected"
+frame_progress = 0.215222
 flip_h = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
@@ -562,7 +625,7 @@ ground_detection_r = NodePath("../../GroundDetectionRight")
 metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
 [node name="Alerted" type="Node" parent="StateMachine"]
-script = ExtResource("6_3ddu2")
+script = ExtResource("7_wqljv")
 metadata/_custom_type_script = "uid://dxuavlj4ittow"
 
 [node name="Hurt" type="Node" parent="StateMachine"]
@@ -588,7 +651,6 @@ animation_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://bmmwrmagic6gh"
 
 [node name="HitboxComponent" type="Area2D" parent="Components"]
-visible = false
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("8_2rxdc")
@@ -649,6 +711,16 @@ metadata/_custom_type_script = "uid://3in6oybdi6my"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/DetectionAreaComponent"]
 shape = SubResource("CircleShape2D_wqljv")
 debug_color = Color(0.6015, 0.527297, 0.366406, 0.42)
+
+[node name="LineOfSightComponent" type="Node2D" parent="Components"]
+script = ExtResource("21_wqljv")
+metadata/_custom_type_script = "uid://bupniunnfyq68"
+
+[node name="RayCast2D" type="RayCast2D" parent="Components/LineOfSightComponent"]
+
+[node name="RayCast2D2" type="RayCast2D" parent="Components/LineOfSightComponent"]
+
+[node name="RayCast2D3" type="RayCast2D" parent="Components/LineOfSightComponent"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

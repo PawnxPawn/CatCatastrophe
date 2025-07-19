@@ -17,12 +17,8 @@ func enter() -> void:
 	idle_timer.start()
 	
 	parent.stats.damage_taken.connect(enemy_damaged)
+	parent.line_of_sight_component.player_in_sight.connect(player_detected)
 	parent.animation_component._handle_idle_animation()
-
-
-func process_frame(_delta:float) -> void:
-	#TODO: Detect area detects player switch to alert state
-	pass
 
 func process_physics(delta:float) -> void:
 	if !parent.is_on_floor():
@@ -35,6 +31,10 @@ func idle_timeout() -> void:
 	state_return(&"Attack")
 
 
+func player_detected() -> void:
+	state_return(&"Alerted")
+
+
 func enemy_damaged() -> void:
 	state_return(&"Hurt")
 
@@ -43,3 +43,4 @@ func exit() -> void:
 	remove_child(idle_timer)
 	idle_timer.timeout.disconnect(idle_timeout)
 	parent.stats.damage_taken.disconnect(enemy_damaged)
+	parent.line_of_sight_component.player_in_sight.disconnect(player_detected)
