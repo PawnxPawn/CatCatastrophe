@@ -1,6 +1,6 @@
 extends Node
 
-var active_checkpoint: AnimatedSprite2D:
+var active_checkpoint: Checkpoint:
 	set(value):
 		active_checkpoint = value
 		player_spawn_location = active_checkpoint.global_position

@@ -1,64 +1,43 @@
-[gd_scene load_steps=18 format=3 uid="uid://cle1fn4nhriid"]
+[gd_scene load_steps=16 format=3 uid="uid://cle1fn4nhriid"]
 
 [ext_resource type="Script" uid="uid://puny4ko1v8b7" path="res://Scenes/UI/main_menu_screen.gd" id="1_8kwcj"]
-[ext_resource type="Texture2D" uid="uid://dd72unou47muk" path="res://Assets/ui menus/Menu ui-Sheet.png" id="1_dk4k7"]
-[ext_resource type="Theme" uid="uid://cbtk6tejcxurh" path="res://Assets/UIThemes/BlankButton.tres" id="2_8kwcj"]
+[ext_resource type="Texture2D" uid="uid://bopr30mw7sfd3" path="res://Assets/ui menus/Layer 1.png" id="2_3iwo0"]
+[ext_resource type="Texture2D" uid="uid://evmmskqqh4pj" path="res://Assets/ui menus/Layer 3.png" id="3_kik35"]
+[ext_resource type="Texture2D" uid="uid://82mf427vj18o" path="res://Assets/ui menus/Layer 2.png" id="3_srnai"]
+[ext_resource type="Texture2D" uid="uid://capjxuetx46by" path="res://Assets/ui menus/text .png" id="4_srnai"]
+[ext_resource type="Texture2D" uid="uid://dqdpac2vq31t1" path="res://Assets/ui menus/normal.png" id="6_srnai"]
+[ext_resource type="Texture2D" uid="uid://bn8pul0xbbxdo" path="res://Assets/ui menus/clicked.png" id="7_xnln6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(5089, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_srnai"]
+atlas = ExtResource("6_srnai")
+region = Rect2(100, 126, 44, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(5598, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a1tf"]
+atlas = ExtResource("7_xnln6")
+region = Rect2(102, 106, 72, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0o4t1"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(6107, 1, 509, 411)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gdgd4"]
+load_path = "res://.godot/imported/normal.png-23fe6248fb6fa00fc1cc463c5fb113d9.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0k4wn"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(6616, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmxew"]
+atlas = SubResource("CompressedTexture2D_gdgd4")
+region = Rect2(100, 106, 76, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j5v2v"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(7125, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeaht"]
+atlas = SubResource("CompressedTexture2D_gdgd4")
+region = Rect2(100, 84, 74, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iotk1"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(7634, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck1fv"]
+atlas = ExtResource("7_xnln6")
+region = Rect2(100, 84, 74, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w44g7"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(8143, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_khug7"]
+atlas = SubResource("CompressedTexture2D_gdgd4")
+region = Rect2(100, 66, 84, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cm266"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(8652, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8g3n"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(9161, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8u0te"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(9670, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oiatc"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(10688, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ojb7r"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(11197, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5qqf"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(13233, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7bbuq"]
-atlas = ExtResource("1_dk4k7")
-region = Rect2(12215, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijbge"]
+atlas = ExtResource("7_xnln6")
+region = Rect2(100, 66, 84, 16)
 
 [node name="MainMenuScreen" type="Control"]
 texture_filter = 1
@@ -68,222 +47,62 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_8kwcj")
 
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_3iwo0")
+
 [node name="Title" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_8qtwp")
-expand_mode = 1
-
-[node name="DVDLogo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_dy7ct")
-expand_mode = 1
-
-[node name="ButtonBox1" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_0o4t1")
-expand_mode = 1
-
-[node name="ButtonBox2" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_0k4wn")
-expand_mode = 1
-
-[node name="ButtonBox3" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_j5v2v")
-expand_mode = 1
-
-[node name="ButtonBox4" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_iotk1")
-expand_mode = 1
-
-[node name="HoverBox1" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_w44g7")
-expand_mode = 1
-
-[node name="HoverBox2" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_cm266")
-expand_mode = 1
-
-[node name="HoverBox3" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_g8g3n")
-expand_mode = 1
-
-[node name="HoverBox4" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_8u0te")
-expand_mode = 1
-
-[node name="ClickedBox1" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_oiatc")
-expand_mode = 1
-
-[node name="ClickedBox2" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_oiatc")
-expand_mode = 1
-
-[node name="ClickedBox3" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_ojb7r")
-expand_mode = 1
-
-[node name="ClickedBox4" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_e5qqf")
-expand_mode = 1
-
-[node name="MainMenuText" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 489.0
-offset_bottom = 411.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_7bbuq")
-expand_mode = 1
-
-[node name="ResumeButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 51.0
-offset_right = 109.0
-offset_bottom = 64.0
-theme = ExtResource("2_8kwcj")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_srnai")
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="Helix" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 71.0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_kik35")
+
+[node name="GameMenus" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_srnai")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 126.0
+offset_right = 145.0
+offset_bottom = 148.0
+texture_normal = SubResource("AtlasTexture_srnai")
+texture_pressed = SubResource("AtlasTexture_6a1tf")
+
+[node name="CreditsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 106.0
+offset_right = 177.0
+offset_bottom = 124.0
+texture_normal = SubResource("AtlasTexture_lmxew")
+texture_pressed = SubResource("AtlasTexture_6a1tf")
+
+[node name="OptionsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 83.0
+offset_right = 176.0
+offset_bottom = 103.0
+texture_normal = SubResource("AtlasTexture_eeaht")
+texture_pressed = SubResource("AtlasTexture_ck1fv")
+
+[node name="NewGameButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
 offset_top = 66.0
-offset_right = 110.0
-offset_bottom = 79.0
-theme = ExtResource("2_8kwcj")
-
-[node name="CreditsButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 80.0
-offset_right = 110.0
-offset_bottom = 93.0
-theme = ExtResource("2_8kwcj")
-
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 96.0
-offset_right = 103.0
-offset_bottom = 109.0
-theme = ExtResource("2_8kwcj")
+offset_right = 184.0
+offset_bottom = 86.0
+texture_normal = SubResource("AtlasTexture_khug7")
+texture_pressed = SubResource("AtlasTexture_ijbge")

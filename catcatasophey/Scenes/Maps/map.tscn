@@ -358,3 +358,6 @@ is_first_checkpoint = true
 
 [node name="Cyrberus" parent="." instance=ExtResource("17_l14b5")]
 position = Vector2(2847, 116)
+
+[node name="glideability" parent="." instance=ExtResource("9_b1vt7")]
+position = Vector2(1418, 149)

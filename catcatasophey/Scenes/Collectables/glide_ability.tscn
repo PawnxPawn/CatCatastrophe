@@ -25,6 +25,7 @@ texture = SubResource("AtlasTexture_m4duc")
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("2_vixc5")
+collectable_type = 4
 metadata/_custom_type_script = "uid://dtbsxsd28gjk0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]

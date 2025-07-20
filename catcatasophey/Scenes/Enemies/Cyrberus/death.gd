@@ -33,4 +33,4 @@ func enter() -> void:
 
 
 func finish() -> void:
-	call_deferred("queue_free")
+	parent.call_deferred("queue_free")
