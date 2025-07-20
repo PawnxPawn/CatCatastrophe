@@ -19,7 +19,10 @@ func alert_mode_deactivated() -> void:
 
 func alert_finished(anim_name:StringName) -> void:
 	if anim_name ==  &"detected":
-		state_return(&"Attack" if parent.line_of_sight_component.is_player_in_sight else &"Walk")
+		if !parent.disable_walk:
+			state_return(&"Attack" if parent.line_of_sight_component.is_player_in_sight else &"Walk")
+			return
+		state_return(&"Attack")
 
 
 func exit() -> void:
