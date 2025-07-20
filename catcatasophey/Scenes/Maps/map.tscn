@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dxwwufhcabncj"]
+[gd_scene load_steps=27 format=4 uid="uid://dxwwufhcabncj"]
 
 [ext_resource type="PackedScene" uid="uid://mfqhiyrupch4" path="res://Scenes/Player/player.tscn" id="1_033m4"]
 [ext_resource type="Script" uid="uid://ia2dt0exbyu7" path="res://Scenes/Maps/lab.gd" id="1_kdlte"]
@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dhkuwmh4mdkd" path="res://Scenes/Collectables/glide_ability.tscn" id="9_b1vt7"]
 [ext_resource type="Texture2D" uid="uid://d1by2e6iwj1c1" path="res://Assets/envirement/floor tiles for catastraphy.png" id="9_uf2qa"]
 [ext_resource type="PackedScene" uid="uid://h71vru0rffeh" path="res://Scenes/Collectables/yarn.tscn" id="11_o5d27"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemies/Microwave/micowave.tscn" id="17_mahy4"]
+[ext_resource type="Script" uid="uid://dtu5o7h6l8r5a" path="res://Scripts/Resources/Stats.gd" id="12_b1vt7"]
+[ext_resource type="PackedScene" uid="uid://qhbgo25ivo8k" path="res://Scenes/Enemies/Microwave/micowave.tscn" id="17_mahy4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf2qa"]
 load_path = "res://.godot/imported/Objects.png-e20fecb5adbf99e6c4c6013107f917af.ctex"
@@ -167,6 +168,18 @@ custom_data_layer_0/name = "Health"
 custom_data_layer_0/type = 2
 sources/1 = SubResource("TileSetAtlasSource_kclty")
 
+[sub_resource type="Resource" id="Resource_o5d27"]
+resource_local_to_scene = true
+script = ExtResource("12_b1vt7")
+max_health = 3
+metadata/_custom_type_script = "uid://dtu5o7h6l8r5a"
+
+[sub_resource type="Resource" id="Resource_mahy4"]
+resource_local_to_scene = true
+script = ExtResource("12_b1vt7")
+max_health = 3
+metadata/_custom_type_script = "uid://dtu5o7h6l8r5a"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfvn6"]
 atlas = ExtResource("4_jc3tk")
 region = Rect2(0, -2, 640, 380)
@@ -253,9 +266,11 @@ position = Vector2(1266, 145)
 
 [node name="Micowave" parent="Enemies" instance=ExtResource("17_mahy4")]
 position = Vector2(1012, 13)
+stats = SubResource("Resource_o5d27")
 
 [node name="Micowave2" parent="Enemies" instance=ExtResource("17_mahy4")]
 position = Vector2(624, 36)
+stats = SubResource("Resource_mahy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
