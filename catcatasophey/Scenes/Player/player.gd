@@ -25,7 +25,16 @@ func _ready() -> void:
 	global_position = GlobalInfo.player_spawn_location
 	SignalBus.spawn_player.connect(set_player_spawn)
 	stats.dead.connect(func():%HurtboxCollision.set_deferred("disabled", true))
+	check_active_abilities()
 
+
+func check_active_abilities() -> void:
+	abilities.jump_activated = GlobalInfo.jump_active
+	abilities.double_jump_activated = GlobalInfo.double_jump_active
+	abilities.roll_activated = GlobalInfo.roll_active
+	abilities.run_activated = GlobalInfo.run_active
+	abilities.glide_activated = GlobalInfo.glide_active
+	abilities.attack_activated = GlobalInfo.attack_active
 
 func set_player_spawn() -> void:
 	global_position = GlobalInfo.player_spawn_location
@@ -36,15 +45,21 @@ func activate_collectable(ability_type:Globals.CollectableTypes) -> void:
 		Globals.CollectableTypes.JUMP:
 			if !abilities.jump_activated:
 				abilities.jump_activated = true
+				GlobalInfo.jump_active = true
 			else:
 				abilities.double_jump_activated = true
+				GlobalInfo.double_jump_active = true
 		Globals.CollectableTypes.ROLL:
 			abilities.roll_activated = true
+			GlobalInfo.roll_active = true
 		Globals.CollectableTypes.RUN:
 			abilities.run_activated = true
+			GlobalInfo.run_active = true
 		Globals.CollectableTypes.ATTACK:
 			abilities.attack_activated = true
+			GlobalInfo.attack_active = true
 		Globals.CollectableTypes.GLIDE:
 			abilities.glide_activated = true
+			GlobalInfo.glide_active = true
 		Globals.CollectableTypes.YARN:
 			stats.yarn_collected += 1

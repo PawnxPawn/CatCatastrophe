@@ -1,186 +1,49 @@
-[gd_scene load_steps=11 format=3 uid="uid://c104mbl6yue1w"]
+[gd_scene load_steps=8 format=3 uid="uid://c104mbl6yue1w"]
 
-[ext_resource type="Texture2D" uid="uid://dd72unou47muk" path="res://Assets/ui menus/Menu ui-Sheet.png" id="1_21tkh"]
+[ext_resource type="Texture2D" uid="uid://def83g7qkkoxe" path="res://Assets/ui menus/Layer 1.png" id="1_bf5oo"]
 [ext_resource type="Script" uid="uid://c6i121dxq2kti" path="res://Scenes/UI/game_over_screen.gd" id="1_mwsax"]
-[ext_resource type="Theme" uid="uid://cbtk6tejcxurh" path="res://Assets/UIThemes/BlankButton.tres" id="2_mwsax"]
+[ext_resource type="Texture2D" uid="uid://c3kqy8wiwgv6j" path="res://Assets/ui menus/gameover.png" id="2_ik0q5"]
+[ext_resource type="Texture2D" uid="uid://bn8pul0xbbxdo" path="res://Assets/ui menus/clicked.png" id="3_ksap3"]
+[ext_resource type="Texture2D" uid="uid://dc846tptdnm2w" path="res://Assets/ui menus/normal.png" id="4_hjimd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iotk1"]
-atlas = ExtResource("1_21tkh")
-region = Rect2(7634, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl0lp"]
+atlas = ExtResource("3_ksap3")
+region = Rect2(102, 128, 42, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8u0te"]
-atlas = ExtResource("1_21tkh")
-region = Rect2(9670, 1, 509, 411)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr7rd"]
+atlas = ExtResource("4_hjimd")
+region = Rect2(100, 126, 44, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5qqf"]
-atlas = ExtResource("1_21tkh")
-region = Rect2(13233, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_06t4h"]
-atlas = ExtResource("1_21tkh")
-region = Rect2(1017, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fu7sn"]
-atlas = ExtResource("1_21tkh")
-region = Rect2(1526, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jix8l"]
-atlas = ExtResource("1_21tkh")
-region = Rect2(3053, 1, 509, 411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_glbon"]
-atlas = ExtResource("1_21tkh")
-region = Rect2(3562, 1, 509, 411)
-
-[node name="GameOverScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GameOverScreen" type="CanvasLayer"]
 script = ExtResource("1_mwsax")
 
-[node name="ButtonBox4" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 70.0
-offset_top = -14.0
-offset_right = 308.0
-offset_bottom = 165.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_iotk1")
-expand_mode = 1
+[node name="Background" type="TextureRect" parent="."]
+z_index = -5
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("1_bf5oo")
 
-[node name="HoverBox4" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 72.0
-offset_top = -14.0
-offset_right = 310.0
-offset_bottom = 165.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_8u0te")
-expand_mode = 1
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_right = 321.0
+offset_bottom = 180.0
+texture = ExtResource("2_ik0q5")
 
-[node name="ClickedBox4" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 75.0
-offset_top = -14.0
-offset_right = 313.0
-offset_bottom = 165.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_e5qqf")
-expand_mode = 1
+[node name="YesButton" type="TextureButton" parent="."]
+offset_left = 103.0
+offset_top = 110.0
+offset_right = 145.0
+offset_bottom = 129.0
+texture_pressed = SubResource("AtlasTexture_wl0lp")
+texture_hover = SubResource("AtlasTexture_xr7rd")
 
-[node name="Yes" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 21.0
-offset_right = 259.0
-offset_bottom = 179.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_06t4h")
-expand_mode = 1
+[node name="NoButton" type="TextureButton" parent="."]
+offset_left = 184.0
+offset_top = 111.0
+offset_right = 226.0
+offset_bottom = 130.0
+texture_pressed = SubResource("AtlasTexture_wl0lp")
+texture_hover = SubResource("AtlasTexture_xr7rd")
 
-[node name="No" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 21.0
-offset_right = 259.0
-offset_bottom = 179.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_fu7sn")
-expand_mode = 1
-
-[node name="Continue" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 21.0
-offset_right = 259.0
-offset_bottom = 179.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_jix8l")
-expand_mode = 1
-
-[node name="GameOver" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 21.0
-offset_right = 259.0
-offset_bottom = 179.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_glbon")
-expand_mode = 1
-
-[node name="ButtonBox5" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 112.0
-offset_top = -14.0
-offset_right = 350.0
-offset_bottom = 165.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_iotk1")
-expand_mode = 1
-
-[node name="HoverBox5" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 114.0
-offset_top = -14.0
-offset_right = 352.0
-offset_bottom = 165.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_8u0te")
-expand_mode = 1
-
-[node name="ClickedBox5" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 117.0
-offset_top = -14.0
-offset_right = 355.0
-offset_bottom = 165.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_e5qqf")
-expand_mode = 1
-
-[node name="YesButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 121.0
-offset_top = 81.0
-offset_right = 153.0
-offset_bottom = 94.0
-theme = ExtResource("2_mwsax")
-
-[node name="NoButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 81.0
-offset_right = 196.0
-offset_bottom = 94.0
-theme = ExtResource("2_mwsax")
+[connection signal="pressed" from="YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="NoButton" to="." method="_on_no_button_pressed"]

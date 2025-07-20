@@ -1,11 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://c31qla46ehk4h"]
+[gd_scene load_steps=12 format=3 uid="uid://c31qla46ehk4h"]
 
-[ext_resource type="Script" uid="uid://c0hx1whllpn77" path="res://Scenes/UI/pause_screen.gd" id="1_yb6qg"]
-[ext_resource type="Texture2D" uid="uid://bopr30mw7sfd3" path="res://Assets/ui menus/Layer 1.png" id="2_hp4js"]
-[ext_resource type="Theme" uid="uid://cbtk6tejcxurh" path="res://Assets/UIThemes/BlankButton.tres" id="2_yb6qg"]
-[ext_resource type="Texture2D" uid="uid://bg4nfhvbhvl8p" path="res://Assets/ui menus/credits page.png" id="3_d4aqr"]
+[ext_resource type="Script" uid="uid://dajka48ywf04l" path="res://Scenes/UI/pause_screen.gd" id="1_yb6qg"]
+[ext_resource type="Texture2D" uid="uid://def83g7qkkoxe" path="res://Assets/ui menus/Layer 1.png" id="2_hp4js"]
+[ext_resource type="Texture2D" uid="uid://b1nfxticg1o3m" path="res://Assets/ui menus/paws.png" id="3_d4aqr"]
+[ext_resource type="Texture2D" uid="uid://bn8pul0xbbxdo" path="res://Assets/ui menus/clicked.png" id="4_hc1a3"]
+[ext_resource type="Texture2D" uid="uid://dc846tptdnm2w" path="res://Assets/ui menus/normal.png" id="5_5k2kv"]
+[ext_resource type="PackedScene" uid="uid://dqqsavhfwf32x" path="res://Scenes/UI/settings_screen.tscn" id="5_d4aqr"]
 
-[node name="CreditsScreen" type="CanvasLayer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkol3"]
+atlas = ExtResource("4_hc1a3")
+region = Rect2(102, 128, 42, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep7nd"]
+atlas = ExtResource("5_5k2kv")
+region = Rect2(100, 126, 44, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6xoh"]
+atlas = ExtResource("4_hc1a3")
+region = Rect2(100, 84, 74, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gdgd4"]
+load_path = "res://.godot/imported/normal.png-23fe6248fb6fa00fc1cc463c5fb113d9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aof11"]
+atlas = SubResource("CompressedTexture2D_gdgd4")
+region = Rect2(100, 84, 74, 20)
+
+[node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_yb6qg")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -14,28 +36,39 @@ offset_right = 320.0
 offset_bottom = 180.0
 texture = ExtResource("2_hp4js")
 
-[node name="Credits" type="TextureRect" parent="."]
-offset_right = 320.0
-offset_bottom = 180.0
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("3_d4aqr")
 
-[node name="ResumeButton" type="Button" parent="."]
-offset_left = 71.0
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 25.0
+offset_top = 113.0
+offset_right = 67.0
+offset_bottom = 132.0
+texture_pressed = SubResource("AtlasTexture_kkol3")
+texture_hover = SubResource("AtlasTexture_ep7nd")
+
+[node name="OptionsButton" type="TextureButton" parent="."]
+offset_left = 19.0
+offset_top = 81.0
+offset_right = 95.0
+offset_bottom = 101.0
+texture_pressed = SubResource("AtlasTexture_e6xoh")
+texture_hover = SubResource("AtlasTexture_aof11")
+
+[node name="ResumeButton" type="TextureButton" parent="."]
+offset_left = 16.0
 offset_top = 51.0
-offset_right = 109.0
-offset_bottom = 64.0
-theme = ExtResource("2_yb6qg")
+offset_right = 92.0
+offset_bottom = 71.0
+texture_pressed = SubResource("AtlasTexture_e6xoh")
+texture_hover = SubResource("AtlasTexture_aof11")
 
-[node name="SettingsButton" type="Button" parent="."]
-offset_left = 71.0
-offset_top = 66.0
-offset_right = 110.0
-offset_bottom = 79.0
-theme = ExtResource("2_yb6qg")
+[node name="SettingsScreen" parent="." instance=ExtResource("5_d4aqr")]
+visible = false
 
-[node name="QuitButton" type="Button" parent="."]
-offset_left = 71.0
-offset_top = 80.0
-offset_right = 103.0
-offset_bottom = 93.0
-theme = ExtResource("2_yb6qg")
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="close_settings" from="SettingsScreen" to="." method="_on_settings_screen_close_settings"]

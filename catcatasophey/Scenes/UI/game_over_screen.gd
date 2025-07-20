@@ -1,13 +1,13 @@
-extends Control
-@onready var button_box_4: TextureRect = $ButtonBox4
-@onready var hover_box_4: TextureRect = $HoverBox4
-@onready var clicked_box_4: TextureRect = $ClickedBox4
-@onready var yes: TextureRect = $Yes
-@onready var no: TextureRect = $No
-@onready var continue_image: TextureRect = $Continue
-@onready var game_over: TextureRect = $GameOver
-@onready var button_box_5: TextureRect = $ButtonBox5
-@onready var hover_box_5: TextureRect = $HoverBox5
-@onready var clicked_box_5: TextureRect = $ClickedBox5
-@onready var yes_button: Button = $YesButton
-@onready var no_button: Button = $NoButton
+extends CanvasLayer
+
+func _ready() -> void:
+	if !GlobalAudio.get_current_track() == &"gameover":
+		GlobalAudio.set_track(&"gameover")
+
+
+func _on_yes_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Maps/level_design.tscn")
+
+
+func _on_no_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/UI/main_menu_screen.tscn")

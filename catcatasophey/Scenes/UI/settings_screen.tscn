@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqqsavhfwf32x"]
+
+[ext_resource type="Script" uid="uid://c5fnqht62qi5d" path="res://Scenes/UI/settings_screen.gd" id="1_0dt33"]
+[ext_resource type="Texture2D" uid="uid://def83g7qkkoxe" path="res://Assets/ui menus/Layer 1.png" id="1_ll1lb"]
+[ext_resource type="Texture2D" uid="uid://cu7hcen1g7kfv" path="res://Assets/ui menus/settings oage.png" id="2_2kggq"]
+[ext_resource type="Texture2D" uid="uid://bn8pul0xbbxdo" path="res://Assets/ui menus/clicked.png" id="4_6m2x1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jhrl"]
+atlas = ExtResource("4_6m2x1")
+region = Rect2(102, 106, 72, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gdgd4"]
+load_path = "res://.godot/imported/normal.png-23fe6248fb6fa00fc1cc463c5fb113d9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34vp5"]
+atlas = SubResource("CompressedTexture2D_gdgd4")
+region = Rect2(100, 106, 76, 18)
+
+[node name="SettingsScreen" type="CanvasLayer"]
+script = ExtResource("1_0dt33")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ll1lb")
+
+[node name="Text" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_2kggq")
+
+[node name="SFXSlider" type="HSlider" parent="."]
+modulate = Color(0.490196, 1, 0, 1)
+offset_left = 99.0
+offset_top = 49.0
+offset_right = 300.0
+offset_bottom = 65.0
+max_value = 2.0
+step = 0.1
+value = 0.5
+
+[node name="MusicSlider" type="HSlider" parent="."]
+modulate = Color(0.490196, 1, 0, 1)
+offset_left = 98.0
+offset_top = 96.0
+offset_right = 299.0
+offset_bottom = 112.0
+max_value = 2.0
+step = 0.1
+value = 0.5
+
+[node name="ReturnButton" type="TextureButton" parent="."]
+offset_left = 118.0
+offset_top = 140.0
+offset_right = 194.0
+offset_bottom = 158.0
+texture_pressed = SubResource("AtlasTexture_6jhrl")
+texture_hover = SubResource("AtlasTexture_34vp5")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

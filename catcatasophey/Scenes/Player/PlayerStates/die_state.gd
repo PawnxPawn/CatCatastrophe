@@ -13,7 +13,8 @@ func death_animation_finished(anim_name:StringName) -> void:
 	if anim_name == &"hurt":
 		parent.animation_component.handle_death_animation()
 	if anim_name == &"death":
-		return
+		GlobalInfo.is_in_boss_room = false
+		get_tree().change_scene_to_file("res://Scenes/UI/game_over_screen.tscn")
 
 
 func exit() -> void:

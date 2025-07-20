@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bi0iypfyyo265"]
+[gd_scene load_steps=61 format=3 uid="uid://bi0iypfyyo265"]
 
 [ext_resource type="Script" uid="uid://bw3nm7jc8khhv" path="res://Scenes/Enemies/Cyrberus/cyrberus2.gd" id="1_d7t7k"]
 [ext_resource type="Resource" uid="uid://ceofsebgfwooa" path="res://Scenes/Enemies/Cyrberus/Boss.tres" id="2_d7t7k"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://bjervgf3bpuvi" path="res://Scripts/Componets/damage_component.gd" id="11_mgrn1"]
 [ext_resource type="Script" uid="uid://3in6oybdi6my" path="res://Scripts/Componets/detection_area_component.gd" id="12_e1tqw"]
 [ext_resource type="Texture2D" uid="uid://b5i11rs067um0" path="res://Assets/microwave/Fireball Explosion.png" id="13_yuxlq"]
-[ext_resource type="PackedScene" uid="uid://cnsuajbvydfxi" path="res://Scenes/UI/health_bar.tscn" id="14_7uk1d"]
 [ext_resource type="Script" uid="uid://2it8hwg1a6hh" path="res://Scripts/Componets/projectile_component.gd" id="14_q41vw"]
 [ext_resource type="PackedScene" uid="uid://c85xr0htfa1sa" path="res://Scenes/Enemies/Projectile/projectile.tscn" id="15_q41vw"]
 
@@ -364,7 +363,7 @@ height = 42.0
 size = Vector2(92, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ves"]
-size = Vector2(369, 261)
+size = Vector2(783, 756)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_31888"]
 atlas = ExtResource("13_yuxlq")
@@ -546,10 +545,9 @@ position = Vector2(-77.5, -71.5)
 shape = SubResource("RectangleShape2D_s1ves")
 debug_color = Color(0.696611, 0.494232, 0, 0.42)
 
-[node name="ProjectileComponent" type="Node" parent="Components" node_paths=PackedStringArray("fire_location", "sprite")]
+[node name="ProjectileComponent" type="Node" parent="Components" node_paths=PackedStringArray("sprite")]
 script = ExtResource("14_q41vw")
 projectile_scene = ExtResource("15_q41vw")
-fire_location = NodePath("Marker2D")
 sprite = NodePath("../../Explosioins/explosion1")
 metadata/_custom_type_script = "uid://2it8hwg1a6hh"
 
@@ -583,7 +581,3 @@ animation = &"explosion"
 position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_g41aq")
 animation = &"explosion"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("14_7uk1d")]

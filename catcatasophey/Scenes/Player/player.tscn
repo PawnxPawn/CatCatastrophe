@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://mfqhiyrupch4"]
+[gd_scene load_steps=126 format=3 uid="uid://mfqhiyrupch4"]
 
 [ext_resource type="Script" uid="uid://c8tetyl8ecwmi" path="res://Scenes/Player/player.gd" id="1_jlvik"]
 [ext_resource type="Resource" uid="uid://bxb251in5rklo" path="res://Scenes/Player/PlayerResources/player_stats.tres" id="2_eksi1"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://cnuew2pwo6xss" path="res://Scenes/Player/PlayerStates/die_state.gd" id="18_ythyg"]
 [ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="20_rcvs5"]
 [ext_resource type="Script" uid="uid://bd87ro2ka5rag" path="res://Scripts/Componets/knockback_component.gd" id="28_ur3l4"]
+[ext_resource type="PackedScene" uid="uid://cnsuajbvydfxi" path="res://Scenes/UI/health_bar.tscn" id="29_2ahak"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ythyg"]
 atlas = ExtResource("5_rqdc0")
@@ -1143,7 +1144,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "input_component", "move_component", "animation_component", "damage_component", "hurtbox_component", "hitbox_component", "jump_componenet", "gravity_component", "knockback_componet")]
 collision_layer = 2
-collision_mask = 17
+collision_mask = 524305
 script = ExtResource("1_jlvik")
 stats = ExtResource("2_eksi1")
 abilities = ExtResource("3_jincj")
@@ -1172,7 +1173,7 @@ target_position = Vector2(0, -12)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -19)
 sprite_frames = SubResource("SpriteFrames_xpcdj")
-animation = &"attack"
+animation = &"start"
 flip_h = true
 
 [node name="WavyNyonRainbow" parent="AnimatedSprite2D" instance=ExtResource("6_bmb2s")]
@@ -1203,7 +1204,7 @@ shape = SubResource("CircleShape2D_rcvs5")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_gk6dx")
-starting_state = NodePath("Idle")
+starting_state = NodePath("GameStart")
 metadata/_custom_type_script = "uid://bjkfn0yc4j1rw"
 
 [node name="GameStart" type="Node" parent="StateMachine"]
@@ -1338,3 +1339,7 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -51)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("29_2ahak")]

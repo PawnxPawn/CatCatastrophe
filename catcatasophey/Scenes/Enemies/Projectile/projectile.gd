@@ -14,6 +14,7 @@ extends AnimatedSprite2D
 
 var is_moving: bool = true
 var lifespan_timer: Timer = Timer.new()
+var custom_move:bool = false
 
 func _ready() -> void:
 	hitbox_component.hitbox_hit.connect(projectile_hit)
@@ -26,8 +27,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var move_direction:float = -1.0 if !flip_h else 1.0
 	if is_moving:
+		if custom_move:
+			movement_component.handle_custom_projectile_movement(self,speed, delta)
+			return
+		var move_direction: float
+		move_direction = -1.0 if !flip_h else 1.0
 		movement_component.handle_projectile_movement(self, speed, move_direction, delta)
 
 

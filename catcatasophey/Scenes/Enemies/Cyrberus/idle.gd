@@ -12,6 +12,7 @@ func enter() -> void:
 	parent.animation_component._handle_idle_animation()
 	timer.timeout.connect(switch_states)
 	parent.detection_area_component.player_detected.connect(player_entered)
+	parent.detection_area_component.player_left_dection.connect(player_left)
 	parent.hurtbox_component.hurt.connect(enemy_hurt)
 	parent.stats.dead.connect(defeated)
 	timer.start()
@@ -30,6 +31,9 @@ func player_entered(_player:Node2D) -> void:
 	GlobalInfo.is_in_boss_room = true
 
 
+func player_left(_player:Node2D) -> void:
+	GlobalInfo.is_in_boss_room = false
+
 func switch_states() -> void:
 	if GlobalInfo.is_in_boss_room:
 		state_return(&"Attack")
@@ -42,4 +46,5 @@ func exit() -> void:
 	timer.timeout.disconnect(switch_states)
 	parent.detection_area_component.player_detected.disconnect(player_entered)
 	parent.hurtbox_component.hurt.disconnect(enemy_hurt)
+	parent.detection_area_component.player_left_dection.disconnect(player_left)
 	parent.stats.dead.disconnect(defeated)

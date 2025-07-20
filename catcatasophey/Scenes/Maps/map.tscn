@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dxwwufhcabncj"]
+[gd_scene load_steps=33 format=4 uid="uid://dxwwufhcabncj"]
 
 [ext_resource type="PackedScene" uid="uid://mfqhiyrupch4" path="res://Scenes/Player/player.tscn" id="1_033m4"]
 [ext_resource type="Script" uid="uid://ia2dt0exbyu7" path="res://Scenes/Maps/lab.gd" id="1_kdlte"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://nkql4jc6lyf8" path="res://Scenes/objects/checkpoint.tscn" id="17_56xhb"]
 [ext_resource type="PackedScene" uid="uid://bi0iypfyyo265" path="res://Scenes/Enemies/Cyrberus/cyrberus2.tscn" id="17_l14b5"]
 [ext_resource type="PackedScene" uid="uid://qhbgo25ivo8k" path="res://Scenes/Enemies/Microwave/micowave.tscn" id="17_mahy4"]
+[ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="18_56xhb"]
+[ext_resource type="Script" uid="uid://2it8hwg1a6hh" path="res://Scripts/Componets/projectile_component.gd" id="19_l14b5"]
+[ext_resource type="PackedScene" uid="uid://c85xr0htfa1sa" path="res://Scenes/Enemies/Projectile/projectile.tscn" id="20_nuq4g"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf2qa"]
 load_path = "res://.godot/imported/Objects.png-e20fecb5adbf99e6c4c6013107f917af.ctex"
@@ -214,6 +217,9 @@ shader_parameter/color = Color(0.713973, 0.957887, 1, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l14b5"]
+size = Vector2(84, 20)
+
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_kdlte")
 
@@ -361,3 +367,25 @@ position = Vector2(2847, 116)
 
 [node name="glideability" parent="." instance=ExtResource("9_b1vt7")]
 position = Vector2(1418, 149)
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("18_56xhb")
+walkable_hazard = true
+metadata/_custom_type_script = "uid://cfk71aloaw2ap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(2085, 166)
+shape = SubResource("RectangleShape2D_l14b5")
+
+[node name="ProjectileComponent" type="Node" parent="."]
+script = ExtResource("19_l14b5")
+projectile_scene = ExtResource("20_nuq4g")
+auto_fire = true
+auto_fire_inital_delay = 0.5
+auto_fire_rotation = 90.0
+metadata/_custom_type_script = "uid://2it8hwg1a6hh"
+
+[node name="Marker2D" type="Marker2D" parent="ProjectileComponent"]
+position = Vector2(2408.61, 37.0285)

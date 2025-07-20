@@ -33,4 +33,6 @@ func enter() -> void:
 
 
 func finish() -> void:
+	GlobalInfo.has_won = true
+	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
 	parent.call_deferred("queue_free")

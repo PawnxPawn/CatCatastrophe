@@ -42,7 +42,7 @@ func _on_hurtbox_entered(hurtbox: Node2D):
 		timer.start()
 
 
-func _on_hurtbox_exited(area:Node2D) -> void:
+func _on_hurtbox_exited(_area:Node2D) -> void:
 	current_hurtbox = null
 	if walkable_hazard == true:
 		timer.stop()

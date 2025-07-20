@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cle1fn4nhriid"]
+[gd_scene load_steps=18 format=3 uid="uid://cle1fn4nhriid"]
 
 [ext_resource type="Script" uid="uid://puny4ko1v8b7" path="res://Scenes/UI/main_menu_screen.gd" id="1_8kwcj"]
 [ext_resource type="Texture2D" uid="uid://def83g7qkkoxe" path="res://Assets/ui menus/Layer 1.png" id="2_3iwo0"]
@@ -7,36 +7,40 @@
 [ext_resource type="Texture2D" uid="uid://b6wkdnhhjcmr5" path="res://Assets/ui menus/text .png" id="4_srnai"]
 [ext_resource type="Texture2D" uid="uid://dc846tptdnm2w" path="res://Assets/ui menus/normal.png" id="6_srnai"]
 [ext_resource type="Texture2D" uid="uid://bn8pul0xbbxdo" path="res://Assets/ui menus/clicked.png" id="7_xnln6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_srnai"]
-atlas = ExtResource("6_srnai")
-region = Rect2(100, 126, 44, 22)
+[ext_resource type="PackedScene" uid="uid://dqqsavhfwf32x" path="res://Scenes/UI/settings_screen.tscn" id="8_6a1tf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6a1tf"]
 atlas = ExtResource("7_xnln6")
 region = Rect2(102, 106, 72, 18)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gdgd4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_srnai"]
+atlas = ExtResource("6_srnai")
+region = Rect2(100, 126, 44, 22)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lmxew"]
 load_path = "res://.godot/imported/normal.png-23fe6248fb6fa00fc1cc463c5fb113d9.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmxew"]
-atlas = SubResource("CompressedTexture2D_gdgd4")
+atlas = SubResource("CompressedTexture2D_lmxew")
 region = Rect2(100, 106, 76, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eeaht"]
-atlas = SubResource("CompressedTexture2D_gdgd4")
-region = Rect2(100, 84, 74, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck1fv"]
 atlas = ExtResource("7_xnln6")
 region = Rect2(100, 84, 74, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_khug7"]
-atlas = SubResource("CompressedTexture2D_gdgd4")
-region = Rect2(100, 66, 84, 16)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6a1tf"]
+load_path = "res://.godot/imported/normal.png-23fe6248fb6fa00fc1cc463c5fb113d9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeaht"]
+atlas = SubResource("CompressedTexture2D_6a1tf")
+region = Rect2(100, 84, 74, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijbge"]
 atlas = ExtResource("7_xnln6")
+region = Rect2(100, 66, 84, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khug7"]
+atlas = SubResource("CompressedTexture2D_6a1tf")
 region = Rect2(100, 66, 84, 16)
 
 [node name="MainMenuScreen" type="CanvasLayer"]
@@ -67,33 +71,37 @@ offset_left = 101.0
 offset_top = 126.0
 offset_right = 145.0
 offset_bottom = 148.0
-texture_normal = SubResource("AtlasTexture_srnai")
 texture_pressed = SubResource("AtlasTexture_6a1tf")
+texture_hover = SubResource("AtlasTexture_srnai")
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 offset_left = 101.0
 offset_top = 106.0
 offset_right = 177.0
 offset_bottom = 124.0
-texture_normal = SubResource("AtlasTexture_lmxew")
 texture_pressed = SubResource("AtlasTexture_6a1tf")
+texture_hover = SubResource("AtlasTexture_lmxew")
 
 [node name="OptionsButton" type="TextureButton" parent="."]
 offset_left = 100.0
 offset_top = 83.0
 offset_right = 176.0
 offset_bottom = 103.0
-texture_normal = SubResource("AtlasTexture_eeaht")
 texture_pressed = SubResource("AtlasTexture_ck1fv")
+texture_hover = SubResource("AtlasTexture_eeaht")
 
 [node name="NewGameButton" type="TextureButton" parent="."]
 offset_left = 100.0
 offset_top = 66.0
 offset_right = 184.0
 offset_bottom = 86.0
-texture_normal = SubResource("AtlasTexture_khug7")
 texture_pressed = SubResource("AtlasTexture_ijbge")
+texture_hover = SubResource("AtlasTexture_khug7")
+
+[node name="SettingsScreen" parent="." instance=ExtResource("8_6a1tf")]
+visible = false
 
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="close_settings" from="SettingsScreen" to="." method="_on_settings_screen_close_settings"]

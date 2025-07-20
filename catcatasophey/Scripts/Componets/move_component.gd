@@ -18,6 +18,12 @@ func handle_movement(body: CharacterBody2D, direction: float) -> void:
 func handle_projectile_movement(body:Node2D, speed:float, direction:float, delta:float) -> void:
 	body.position.x += direction * (speed * delta)
 
+
+func handle_custom_projectile_movement(body:Node2D, speed:float, delta:float):
+	var motion = Vector2(cos(body.rotation), sin(body.rotation)) * speed
+	body.position += motion * delta
+
+
 func set_speed(move_type: Globals.MovementType) -> void:
 	match move_type:
 		g.MovementType.WALK:
