@@ -8,7 +8,7 @@ signal dead
 @export_group("Values")
 @export var max_health: int = 3
 
-var last_health = max_health;
+var last_health:int = max_health;
 
 var health: int = max_health:
 	set(value):

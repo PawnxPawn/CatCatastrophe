@@ -40,7 +40,6 @@ func enable_disable_raycast(is_enabled:bool):
 
 func _physics_process(_delta: float) -> void:
 	if player_node == null: return
-	print(player_node)
 	parent.player_position = _get_player_position()
 	
 	if parent.player_position == Vector2.INF:

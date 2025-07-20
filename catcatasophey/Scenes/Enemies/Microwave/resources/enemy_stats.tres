@@ -5,5 +5,5 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_u48cu")
-max_health = 3
+max_health = 10
 metadata/_custom_type_script = "uid://dtu5o7h6l8r5a"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BossStats" load_steps=2 format=3 uid="uid://ceofsebgfwooa"]
+
+[ext_resource type="Script" uid="uid://cydk3usa5oivo" path="res://Scripts/Resources/stats_boss.gd" id="1_220tt"]
+
+[resource]
+script = ExtResource("1_220tt")
+max_health = 10
+metadata/_custom_type_script = "uid://cydk3usa5oivo"

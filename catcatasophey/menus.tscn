@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://blsubrijrjy4y"]
+
+[ext_resource type="Script" uid="uid://wegld4ob5qyw" path="res://menus.gd" id="1_q3xga"]
+[ext_resource type="Texture2D" uid="uid://iwshbisnipvy" path="res://Assets/ui menus/monitor.png" id="2_ri7g6"]
+[ext_resource type="PackedScene" uid="uid://c104mbl6yue1w" path="res://Scenes/UI/game_over_screen.tscn" id="3_ak5mw"]
+[ext_resource type="Texture2D" uid="uid://dd72unou47muk" path="res://Assets/ui menus/Menu ui-Sheet.png" id="4_uc4vm"]
+[ext_resource type="PackedScene" uid="uid://c31qla46ehk4h" path="res://Scenes/UI/pause_screen.tscn" id="5_36kji"]
+[ext_resource type="PackedScene" uid="uid://cle1fn4nhriid" path="res://Scenes/UI/main_menu_screen.tscn" id="6_fehud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlkkf"]
+atlas = ExtResource("4_uc4vm")
+region = Rect2(508, 1, 509, 411)
+
+[node name="Menus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q3xga")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monitor" type="TextureRect" parent="CanvasLayer"]
+z_index = -10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 480.0
+offset_bottom = 360.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ri7g6")
+expand_mode = 1
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("3_ak5mw")]
+visible = false
+
+[node name="BootScreen" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Screen1" type="TextureRect" parent="CanvasLayer/BootScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 21.0
+offset_right = 259.0
+offset_bottom = 179.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_nlkkf")
+expand_mode = 1
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("5_36kji")]
+
+[node name="MainMenuScreen" parent="CanvasLayer" instance=ExtResource("6_fehud")]
+visible = false

@@ -1,10 +1,13 @@
 class_name HurtState
 extends State
 
+var die:Callable = func(): state_return(&"Die")
+
 func enter() -> void:
 	parent.velocity = Vector2.ZERO
 	parent.animation_component.handle_hurt_animation(parent.state_machine.get_last_state.name)
 	parent.animation_component.animation_player.animation_finished.connect(hurt_animation_finished)
+	parent.stats.dead.connect(die)
 
 
 func hurt_animation_finished(anim_name:StringName) -> void:
@@ -32,3 +35,4 @@ func process_physics(_delta:float) -> void:
 
 func exit() -> void:
 	parent.animation_component.animation_player.animation_finished.disconnect(hurt_animation_finished)
+	parent.stats.dead.disconnect(die)

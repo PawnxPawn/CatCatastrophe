@@ -1,0 +1,186 @@
+[gd_scene load_steps=11 format=3 uid="uid://c104mbl6yue1w"]
+
+[ext_resource type="Texture2D" uid="uid://dd72unou47muk" path="res://Assets/ui menus/Menu ui-Sheet.png" id="1_21tkh"]
+[ext_resource type="Script" uid="uid://c6i121dxq2kti" path="res://Scenes/UI/game_over_screen.gd" id="1_mwsax"]
+[ext_resource type="Theme" uid="uid://cbtk6tejcxurh" path="res://Assets/UIThemes/BlankButton.tres" id="2_mwsax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iotk1"]
+atlas = ExtResource("1_21tkh")
+region = Rect2(7634, 1, 509, 411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u0te"]
+atlas = ExtResource("1_21tkh")
+region = Rect2(9670, 1, 509, 411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5qqf"]
+atlas = ExtResource("1_21tkh")
+region = Rect2(13233, 1, 509, 411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06t4h"]
+atlas = ExtResource("1_21tkh")
+region = Rect2(1017, 1, 509, 411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu7sn"]
+atlas = ExtResource("1_21tkh")
+region = Rect2(1526, 1, 509, 411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jix8l"]
+atlas = ExtResource("1_21tkh")
+region = Rect2(3053, 1, 509, 411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glbon"]
+atlas = ExtResource("1_21tkh")
+region = Rect2(3562, 1, 509, 411)
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mwsax")
+
+[node name="ButtonBox4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 70.0
+offset_top = -14.0
+offset_right = 308.0
+offset_bottom = 165.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_iotk1")
+expand_mode = 1
+
+[node name="HoverBox4" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 72.0
+offset_top = -14.0
+offset_right = 310.0
+offset_bottom = 165.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_8u0te")
+expand_mode = 1
+
+[node name="ClickedBox4" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 75.0
+offset_top = -14.0
+offset_right = 313.0
+offset_bottom = 165.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_e5qqf")
+expand_mode = 1
+
+[node name="Yes" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 21.0
+offset_right = 259.0
+offset_bottom = 179.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_06t4h")
+expand_mode = 1
+
+[node name="No" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 21.0
+offset_right = 259.0
+offset_bottom = 179.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_fu7sn")
+expand_mode = 1
+
+[node name="Continue" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 21.0
+offset_right = 259.0
+offset_bottom = 179.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_jix8l")
+expand_mode = 1
+
+[node name="GameOver" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 21.0
+offset_right = 259.0
+offset_bottom = 179.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_glbon")
+expand_mode = 1
+
+[node name="ButtonBox5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 112.0
+offset_top = -14.0
+offset_right = 350.0
+offset_bottom = 165.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_iotk1")
+expand_mode = 1
+
+[node name="HoverBox5" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 114.0
+offset_top = -14.0
+offset_right = 352.0
+offset_bottom = 165.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_8u0te")
+expand_mode = 1
+
+[node name="ClickedBox5" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 117.0
+offset_top = -14.0
+offset_right = 355.0
+offset_bottom = 165.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_e5qqf")
+expand_mode = 1
+
+[node name="YesButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 81.0
+offset_right = 153.0
+offset_bottom = 94.0
+theme = ExtResource("2_mwsax")
+
+[node name="NoButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 81.0
+offset_right = 196.0
+offset_bottom = 94.0
+theme = ExtResource("2_mwsax")

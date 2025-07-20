@@ -18,7 +18,7 @@ func alert_mode_activated() -> void:
 
 
 func confusion_finished(anim_name:StringName) -> void:
-	if anim_name == &"confustion":
+	if anim_name == &"confusion":
 		state_return(&"Idle")
 
 

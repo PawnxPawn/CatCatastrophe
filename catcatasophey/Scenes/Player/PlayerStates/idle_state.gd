@@ -34,6 +34,7 @@ func player_damaged() -> void:
 	state_return(&"Hurt")
 
 
+
 func exit() -> void:
 	parent.stats.damage_taken.disconnect(player_damaged)
 	parent.stats.dead.disconnect(die)

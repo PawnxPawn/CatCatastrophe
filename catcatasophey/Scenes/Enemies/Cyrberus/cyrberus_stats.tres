@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=2 format=3 uid="uid://0qr0wed73q0x"]
+
+[ext_resource type="Script" uid="uid://dtu5o7h6l8r5a" path="res://Scripts/Resources/Stats.gd" id="1_mapd4"]
+
+[resource]
+script = ExtResource("1_mapd4")
+max_health = 10
+metadata/_custom_type_script = "uid://dtu5o7h6l8r5a"

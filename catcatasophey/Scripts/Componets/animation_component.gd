@@ -97,3 +97,9 @@ func handle_death_animation() -> void:
 
 func handle_start_animation() -> void:
 	animation_player.play(&"start")
+
+
+func handle_damage_flash() -> void:
+	sprite.modulate = Color(100.0, 100.0, 100.0)
+	await get_tree().create_timer(.1).timeout
+	sprite.modulate = Color(1.0, 1.0, 1.0)

@@ -22,6 +22,13 @@ var collectable:Globals.CollectableTypes
 func _ready() -> void:
 	super()
 	damage_component.init_damage_component(self, hurtbox_component)
+	global_position = GlobalInfo.player_spawn_location
+	SignalBus.spawn_player.connect(set_player_spawn)
+	stats.dead.connect(func():%HurtboxCollision.set_deferred("disabled", true))
+
+
+func set_player_spawn() -> void:
+	global_position = GlobalInfo.player_spawn_location
 
 
 func activate_collectable(ability_type:Globals.CollectableTypes) -> void:

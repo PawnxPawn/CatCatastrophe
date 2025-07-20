@@ -1,0 +1,20 @@
+extends Control
+@onready var title: TextureRect = $Title
+@onready var dvd_logo: TextureRect = $DVDLogo
+@onready var button_box_1: TextureRect = $ButtonBox1
+@onready var button_box_2: TextureRect = $ButtonBox2
+@onready var button_box_3: TextureRect = $ButtonBox3
+@onready var button_box_4: TextureRect = $ButtonBox4
+@onready var hover_box_1: TextureRect = $HoverBox1
+@onready var hover_box_2: TextureRect = $HoverBox2
+@onready var hover_box_3: TextureRect = $HoverBox3
+@onready var hover_box_4: TextureRect = $HoverBox4
+@onready var clicked_box_1: TextureRect = $ClickedBox1
+@onready var clicked_box_2: TextureRect = $ClickedBox2
+@onready var clicked_box_3: TextureRect = $ClickedBox3
+@onready var clicked_box_4: TextureRect = $ClickedBox4
+@onready var main_menu_text: TextureRect = $MainMenuText
+@onready var resume_button: Button = $ResumeButton
+@onready var settings_button: Button = $SettingsButton
+@onready var credits_button: Button = $CreditsButton
+@onready var quit_button: Button = $QuitButton

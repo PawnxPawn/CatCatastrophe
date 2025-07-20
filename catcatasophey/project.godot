@@ -17,7 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalAudio="*res://Scenes/Globals/global_audio.tscn"
+GlobalAudio="*res://Scripts/Globals/global_audio.tscn"
+SignalBus="*res://Scripts/Globals/signal_bus.gd"
+GlobalInfo="*res://Scripts/Globals/globals_info.gd"
 
 [display]
 
@@ -26,6 +28,7 @@ window/size/viewport_height=180
 window/size/window_width_override=1440
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://vnoi4npg8ujt"
 
 [editor_plugins]
 

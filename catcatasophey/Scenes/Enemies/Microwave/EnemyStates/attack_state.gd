@@ -12,7 +12,6 @@ func change_state(anim_name:StringName) -> void:
 	if anim_name == &"attack":
 		state_return(&"Idle")
 
-
 func launch_projectile() -> void:
 	parent.projectile_component.fire_projectile()
 
