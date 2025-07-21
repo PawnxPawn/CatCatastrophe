@@ -13,7 +13,8 @@ config_version=5
 config/name="Cat Catasophey"
 run/main_scene="uid://cle1fn4nhriid"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://cea3d3q2rm4x"
+config/windows_native_icon="res://Assets/ui menus/icon.ico"
 
 [autoload]
 
