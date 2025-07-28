@@ -33,3 +33,7 @@ func _on_new_game_button_pressed() -> void:
 func _on_settings_screen_close_settings() -> void:
 	visible = true
 	settings_screen.visible = false
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

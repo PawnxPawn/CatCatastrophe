@@ -2,7 +2,7 @@ class_name DetectionAreaComponent
 extends Area2D
 
 signal player_detected(player)
-signal player_left_dection()
+signal player_left_dection
 
 
 

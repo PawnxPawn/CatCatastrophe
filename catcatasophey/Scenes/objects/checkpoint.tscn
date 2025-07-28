@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://nkql4jc6lyf8"]
 
-[ext_resource type="Texture2D" uid="uid://cd5u38v2bsj40" path="res://Assets/envirement/Checkpoint.png" id="1_nhsul"]
+[ext_resource type="Texture2D" uid="uid://dpkewimljrv62" path="res://Assets/envirement/Checkpoint.png" id="1_nhsul"]
 [ext_resource type="Script" uid="uid://doubqhutmfv5t" path="res://Scenes/objects/checkpoint.gd" id="2_3myyp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3myyp"]

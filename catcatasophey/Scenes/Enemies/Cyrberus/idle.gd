@@ -1,6 +1,6 @@
 extends State
 
-@export var min_wait_time: float = 1.0
+@export var min_wait_time: float = 1.5
 
 var timer: Timer = Timer.new()
 
@@ -31,7 +31,7 @@ func player_entered(_player:Node2D) -> void:
 	GlobalInfo.is_in_boss_room = true
 
 
-func player_left(_player:Node2D) -> void:
+func player_left() -> void:
 	GlobalInfo.is_in_boss_room = false
 
 func switch_states() -> void:

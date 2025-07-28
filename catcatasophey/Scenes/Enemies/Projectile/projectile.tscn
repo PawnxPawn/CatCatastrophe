@@ -1,62 +1,71 @@
 [gd_scene load_steps=20 format=3 uid="uid://c85xr0htfa1sa"]
 
-[ext_resource type="Texture2D" uid="uid://b5i11rs067um0" path="res://Assets/microwave/Fireball Explosion.png" id="1_gmxhj"]
-[ext_resource type="Texture2D" uid="uid://choxn0bxwsdjg" path="res://Assets/microwave/Fireball loop.png" id="2_0lpya"]
+[ext_resource type="Texture2D" uid="uid://dhewfydm6x6y5" path="res://Assets/microwave/Fireball Explosion.png" id="1_gmxhj"]
+[ext_resource type="Texture2D" uid="uid://drbhp1mlht8nc" path="res://Assets/microwave/Fireball loop.png" id="2_0lpya"]
 [ext_resource type="Script" uid="uid://dcqmutdrvqha3" path="res://Scenes/Enemies/Projectile/projectile.gd" id="3_ppt1m"]
 [ext_resource type="Script" uid="uid://cfk71aloaw2ap" path="res://Scripts/Componets/hitbox_component.gd" id="4_y22dr"]
 [ext_resource type="Script" uid="uid://f24w6hdleftd" path="res://Scripts/Componets/move_component.gd" id="5_0lpya"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1x3h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lpya"]
 atlas = ExtResource("1_gmxhj")
 region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppt1m"]
+atlas = ExtResource("1_gmxhj")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y22dr"]
+atlas = ExtResource("1_gmxhj")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1x3h"]
+atlas = ExtResource("1_gmxhj")
+region = Rect2(240, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gm2tx"]
 atlas = ExtResource("1_gmxhj")
-region = Rect2(80, 0, 80, 80)
+region = Rect2(320, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlx5i"]
 atlas = ExtResource("1_gmxhj")
-region = Rect2(160, 0, 80, 80)
+region = Rect2(400, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dq4l1"]
 atlas = ExtResource("1_gmxhj")
-region = Rect2(240, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7mlr"]
-atlas = ExtResource("1_gmxhj")
-region = Rect2(320, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0g1kc"]
-atlas = ExtResource("1_gmxhj")
-region = Rect2(400, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l8mch"]
-atlas = ExtResource("1_gmxhj")
 region = Rect2(480, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkbej"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7mlr"]
 atlas = ExtResource("2_0lpya")
 region = Rect2(0, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3t3ib"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g1kc"]
 atlas = ExtResource("2_0lpya")
 region = Rect2(80, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_udaoi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8mch"]
 atlas = ExtResource("2_0lpya")
 region = Rect2(160, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uklxq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkbej"]
 atlas = ExtResource("2_0lpya")
 region = Rect2(240, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ymviy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t3ib"]
 atlas = ExtResource("2_0lpya")
 region = Rect2(320, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k12tg"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lpya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppt1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y22dr")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o1x3h")
 }, {
@@ -68,7 +77,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dq4l1")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g7mlr")
 }, {
@@ -77,26 +91,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l8mch")
-}],
-"loop": false,
-"name": &"hit",
-"speed": 12.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bkbej")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3t3ib")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_udaoi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uklxq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ymviy")
 }],
 "loop": true,
 "name": &"launched",
@@ -108,7 +108,7 @@ size = Vector2(38, 16)
 
 [node name="Projectile" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_k12tg")
-animation = &"launched"
+animation = &"hit"
 autoplay = "launched"
 script = ExtResource("3_ppt1m")
 

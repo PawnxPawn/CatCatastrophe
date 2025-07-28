@@ -1,7 +1,7 @@
 class_name HurtState
 extends State
 
-var die:Callable = func(): state_return(&"Die")
+func die() -> void: state_return(&"Die")
 
 func enter() -> void:
 	parent.velocity = Vector2.ZERO

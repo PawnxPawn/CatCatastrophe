@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://brh87eggsr503"]
 
 [ext_resource type="Script" uid="uid://c0hx1whllpn77" path="res://Scenes/UI/credits_screen.gd" id="1_tdxk4"]
-[ext_resource type="Texture2D" uid="uid://def83g7qkkoxe" path="res://Assets/ui menus/Layer 1.png" id="2_k0d3f"]
-[ext_resource type="Texture2D" uid="uid://7ac6mxg8ymbv" path="res://Assets/ui menus/credits page.png" id="3_1g7ho"]
+[ext_resource type="Texture2D" uid="uid://b5o40l68ngrg7" path="res://Assets/ui menus/Layer 1.png" id="2_k0d3f"]
+[ext_resource type="Texture2D" uid="uid://d4cio1u2h33am" path="res://Assets/ui menus/credits page.png" id="3_1g7ho"]
 
 [node name="CreditsScreen" type="CanvasLayer"]
 script = ExtResource("1_tdxk4")

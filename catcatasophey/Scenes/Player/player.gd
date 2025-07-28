@@ -24,8 +24,12 @@ func _ready() -> void:
 	damage_component.init_damage_component(self, hurtbox_component)
 	global_position = GlobalInfo.player_spawn_location
 	SignalBus.spawn_player.connect(set_player_spawn)
-	stats.dead.connect(func():%HurtboxCollision.set_deferred("disabled", true))
+	stats.dead.connect(disable_hutbox)
 	check_active_abilities()
+
+
+func disable_hutbox() -> void:
+	%HurtboxCollision.set_deferred("disabled", true)
 
 
 func check_active_abilities() -> void:

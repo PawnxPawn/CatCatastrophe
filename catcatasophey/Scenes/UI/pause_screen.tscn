@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://c31qla46ehk4h"]
 
 [ext_resource type="Script" uid="uid://dajka48ywf04l" path="res://Scenes/UI/pause_screen.gd" id="1_yb6qg"]
-[ext_resource type="Texture2D" uid="uid://def83g7qkkoxe" path="res://Assets/ui menus/Layer 1.png" id="2_hp4js"]
-[ext_resource type="Texture2D" uid="uid://b1nfxticg1o3m" path="res://Assets/ui menus/paws.png" id="3_d4aqr"]
-[ext_resource type="Texture2D" uid="uid://bn8pul0xbbxdo" path="res://Assets/ui menus/clicked.png" id="4_hc1a3"]
-[ext_resource type="Texture2D" uid="uid://dc846tptdnm2w" path="res://Assets/ui menus/normal.png" id="5_5k2kv"]
+[ext_resource type="Texture2D" uid="uid://b5o40l68ngrg7" path="res://Assets/ui menus/Layer 1.png" id="2_hp4js"]
+[ext_resource type="Texture2D" uid="uid://dt0hj6ymvvpc8" path="res://Assets/ui menus/paws.png" id="3_d4aqr"]
+[ext_resource type="Texture2D" uid="uid://6kpefjm8dqah" path="res://Assets/ui menus/clicked.png" id="4_hc1a3"]
+[ext_resource type="Texture2D" uid="uid://bl42b8vrxy7d0" path="res://Assets/ui menus/normal.png" id="5_5k2kv"]
 [ext_resource type="PackedScene" uid="uid://dqqsavhfwf32x" path="res://Scenes/UI/settings_screen.tscn" id="5_d4aqr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkol3"]

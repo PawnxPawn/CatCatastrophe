@@ -4,8 +4,8 @@ extends State
 @export var ceiling_check_left: RayCast2D
 @export var ceiling_check_right: RayCast2D
 var _direction: float = 0.0
-var die:Callable = func(): state_return(&"Die")
-var player_damaged: Callable = func(): state_return(&"Hurt")
+func die() -> void: state_return(&"Die")
+func player_damaged() -> void: state_return(&"Hurt")
 
 func enter() -> void: 
 	parent.animation_component.handle_roll_animation()

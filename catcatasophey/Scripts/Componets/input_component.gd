@@ -8,7 +8,7 @@ func get_direction_input() -> float:
 
 
 func get_attack_input() -> bool:
-	return Input.is_action_pressed(&"attack") && abilities.attack_activated
+	return (Input.is_action_pressed(&"attack") || Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) && abilities.attack_activated
 
 
 func get_run_input() -> bool:

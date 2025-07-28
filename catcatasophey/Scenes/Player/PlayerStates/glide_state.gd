@@ -2,8 +2,8 @@ extends State
 
 const VELOCITY_HEIGHT: float = 65.0
 const TIME_TO_DECENT: float = 15.0
-var die:Callable = func(): state_return(&"Die")
-var player_damaged:Callable = func(): state_return(&"Hurt")
+func die() -> void: state_return(&"Die")
+func player_damaged() -> void: state_return(&"Hurt")
 
 func enter() -> void:
 	parent.velocity.y = 0.0

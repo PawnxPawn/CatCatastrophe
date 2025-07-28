@@ -5,7 +5,7 @@ extends Node
 @onready var launch_gravity: float = ((-2.0 * LAUNCH_HEIGHT) / pow(LAUNCH_TIME_TO_PEAK,2)) * -1.0
 
 
-const LAUNCH_HEIGHT: float = 65.0
+const LAUNCH_HEIGHT: float = 75.0
 const LAUNCH_TIME_TO_PEAK: float = 0.5
 const LAUNCH_TIME_TO_DESCENT: float = 0.45
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhkuwmh4mdkd"]
 
-[ext_resource type="Texture2D" uid="uid://8ys1114of5ua" path="res://Assets/Powerups.png" id="1_q3wln"]
+[ext_resource type="Texture2D" uid="uid://dsd6f83ihfd8n" path="res://Assets/Powerups.png" id="1_q3wln"]
 [ext_resource type="Script" uid="uid://dtbsxsd28gjk0" path="res://Scripts/Componets/collectable_component.gd" id="2_vixc5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4a77"]

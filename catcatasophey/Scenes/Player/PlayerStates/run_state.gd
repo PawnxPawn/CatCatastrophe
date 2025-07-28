@@ -3,7 +3,7 @@ extends State
 
 var _direction:float
 var g = Globals
-var die:Callable = func(): state_return(&"Die")
+func die() -> void: state_return(&"Die")
 
 func enter() -> void:
 	parent.move_component.set_speed(g.MovementType.RUN)

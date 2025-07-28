@@ -3,8 +3,11 @@ extends State
 
 var _direction: float = 0.0
 var _initial_run: bool = true
-var die:Callable = func(): state_return(&"Die")
-var player_damaged: Callable = func(): state_return(&"Hurt")
+var jump_timer: Timer = Timer.new()
+var jump_time: float = 0.2
+
+func die() -> void: state_return(&"Die")
+func player_damaged() -> void: state_return(&"Hurt")
 
 func enter() -> void:
 	_initial_run = true
@@ -13,6 +16,10 @@ func enter() -> void:
 	parent.animation_component.handle_jump_animation()
 	parent.stats.damage_taken.connect(player_damaged)
 	parent.stats.dead.connect(die)
+	jump_timer.one_shot = true
+	jump_timer.wait_time = jump_time
+	add_child(jump_timer)
+	jump_timer.start()
 
 
 func process_input(_event: InputEvent) -> void:
@@ -25,13 +32,13 @@ func process_frame(_delta:float) -> void:
 	_direction = parent.input_component.get_direction_input()
 	parent.move_component.handle_movement(parent, _direction)
 	parent.animation_component.flip_sprite(_direction)
-		
-	if !parent.input_component.get_jump_held_input():
-		parent.velocity.y = 0
+	
+	if !parent.input_component.get_jump_held_input() and jump_timer.is_stopped():
+		parent.velocity.y = 0.0
 		state_return(&"Fall")
 		return
 	
-	if parent.velocity.y > 0:
+	if parent.velocity.y > 0.1:
 		if parent.input_component.get_jump_held_input() && parent.abilities.glide_activated:
 			state_return(&"Glide")
 			return 
@@ -45,9 +52,6 @@ func process_frame(_delta:float) -> void:
 		if parent.input_component.get_direction_input():
 			state_return(&"Walk" if !parent.input_component.get_run_input() else &"Run")
 			return
-		parent.jump_componenet.jump_count = 0
-		state_return(&"Idle")
-		return
 		
 	_initial_run = false
 
@@ -57,5 +61,6 @@ func process_physics(delta:float) -> void:
 
 
 func exit() -> void:
+	remove_child(jump_timer)
 	parent.stats.damage_taken.disconnect(player_damaged)
 	parent.stats.dead.disconnect(die)

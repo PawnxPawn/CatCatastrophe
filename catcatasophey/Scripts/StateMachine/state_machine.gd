@@ -45,6 +45,8 @@ func change_state(new_state: State) -> void:
 	_next_state = null
 	
 	_current_state = new_state
+	if get_parent() is Player:
+		print(_current_state.name)
 	_current_state.enter()
 
 func process_input(event: InputEvent) -> void:

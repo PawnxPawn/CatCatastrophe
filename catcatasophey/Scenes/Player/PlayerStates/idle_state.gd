@@ -1,7 +1,7 @@
 class_name PlayerIdle
 extends State
 
-var die:Callable = func(): state_return(&"Die")
+func die() -> void: state_return(&"Die")
 
 func enter() -> void:
 	parent.velocity.x = 0.0

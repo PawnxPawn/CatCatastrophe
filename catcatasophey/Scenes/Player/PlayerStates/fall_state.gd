@@ -2,8 +2,8 @@ class_name PlayerFall
 extends State
 
 var _direction:float
-var die:Callable = func(): state_return(&"Die")
-var player_damaged:Callable = func(): state_return(&"Hurt") 
+func die() -> void: state_return(&"Die")
+func player_damaged() -> void: state_return(&"Hurt") 
 
 func enter() -> void:
 	parent.animation_component.handle_jump_animation(true)

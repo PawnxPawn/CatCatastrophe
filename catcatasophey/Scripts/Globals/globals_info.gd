@@ -2,7 +2,6 @@ extends Node
 
 var inital_set: bool = true
 var default_checkpoint: Vector2 = Vector2.ZERO
-var active_checkpoint_node: Checkpoint
 
 
 var run_active:bool = false

@@ -13,8 +13,8 @@ config_version=5
 config/name="Cat Catasophey"
 run/main_scene="uid://cle1fn4nhriid"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="uid://cea3d3q2rm4x"
-config/windows_native_icon="res://Assets/ui menus/icon.ico"
+config/icon="res://icon.svg"
+config/windows_native_icon="res://Assets/icon.ico"
 
 [autoload]
 
@@ -28,12 +28,12 @@ window/size/viewport_width=320
 window/size/viewport_height=180
 window/size/window_width_override=1440
 window/size/window_height_override=720
-window/stretch/mode="viewport"
-mouse_cursor/custom_image="uid://vnoi4npg8ujt"
+window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
@@ -107,7 +107,4 @@ laser={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true
+textures/snap/snap_2d_transforms_to_pixel=true

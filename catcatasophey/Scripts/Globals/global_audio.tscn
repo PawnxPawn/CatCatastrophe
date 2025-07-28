@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://oikp3nkqa45o"]
 
 [ext_resource type="Script" uid="uid://bscd8r6t06ajg" path="res://Scripts/Globals/global_audio.gd" id="1_517fa"]
-[ext_resource type="AudioStream" uid="uid://ffbevevepx6l" path="res://Assets/Music/Catastrophe.mp3" id="2_0yns3"]
-[ext_resource type="AudioStream" uid="uid://4kf7874ryv4a" path="res://Assets/Music/Cattack.mp3" id="3_v6o1e"]
-[ext_resource type="AudioStream" uid="uid://ckiao0puin4vi" path="res://Assets/Music/Game-Purrver.mp3" id="4_vvye5"]
-[ext_resource type="AudioStream" uid="uid://dv3yrxf3yjakq" path="res://Assets/Music/Purr-Menu.mp3" id="5_me8gm"]
-[ext_resource type="AudioStream" uid="uid://bhap12nvg2txx" path="res://Assets/Music/Credits-Smeowng.mp3" id="6_45qjr"]
+[ext_resource type="AudioStream" uid="uid://d4lpiegfd1yrr" path="res://Assets/Music/Catastrophe.mp3" id="2_0yns3"]
+[ext_resource type="AudioStream" uid="uid://uatl48xv8gse" path="res://Assets/Music/Cattack.mp3" id="3_v6o1e"]
+[ext_resource type="AudioStream" uid="uid://sj7g3qdl68td" path="res://Assets/Music/Game-Purrver.mp3" id="4_vvye5"]
+[ext_resource type="AudioStream" uid="uid://drdb1wsumcnwi" path="res://Assets/Music/Purr-Menu.mp3" id="5_me8gm"]
+[ext_resource type="AudioStream" uid="uid://djxpi8ea64gjr" path="res://Assets/Music/Credits-Smeowng.mp3" id="6_45qjr"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_517fa"]
 clip_count = 5
