@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://c0dc47ftchk02"]
+[gd_scene load_steps=70 format=4 uid="uid://c0dc47ftchk02"]
 
 [ext_resource type="Script" uid="uid://52urmwl70fve" path="res://Scenes/Maps/level_design.gd" id="1_3wrlw"]
 [ext_resource type="Texture2D" uid="uid://bddm7tfk5c0if" path="res://Assets/envirement/floor tiles for catastraphy.png" id="2_01rr5"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c31qla46ehk4h" path="res://Scenes/UI/pause_screen.tscn" id="19_d2gcg"]
 [ext_resource type="Script" uid="uid://2it8hwg1a6hh" path="res://Scripts/Componets/projectile_component.gd" id="20_6i5xp"]
 [ext_resource type="PackedScene" uid="uid://c85xr0htfa1sa" path="res://Scenes/Enemies/Projectile/projectile.tscn" id="21_tnhs0"]
+[ext_resource type="Texture2D" uid="uid://c6jqwmxer6jut" path="res://Assets/ui menus/image.png" id="22_tnhs0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kclty"]
 texture = ExtResource("2_01rr5")
@@ -624,7 +625,7 @@ position = Vector2(2512, 2234)
 position = Vector2(21147, 139)
 
 [node name="Yarn1" parent="Yarn" instance=ExtResource("5_unvjx")]
-position = Vector2(2908, 979)
+position = Vector2(2959, 979)
 
 [node name="Yarn2" parent="Yarn" instance=ExtResource("5_unvjx")]
 position = Vector2(1980, 2226)
@@ -1734,5 +1735,14 @@ position = Vector2(16721, 249)
 texture = ExtResource("14_so3xu")
 region_enabled = true
 region_rect = Rect2(746, 132, 100, 246)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = 2884.0
+offset_top = 931.0
+offset_right = 2929.0
+offset_bottom = 990.0
+texture = ExtResource("22_tnhs0")
+flip_h = true
 
 [editable path="Tilesets/Cyrberus"]

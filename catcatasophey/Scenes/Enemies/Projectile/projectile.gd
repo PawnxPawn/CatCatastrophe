@@ -44,4 +44,4 @@ func projectile_hit() -> void:
 
 
 func remove_projectile() -> void:
-	queue_free()
+	call_deferred("queue_free")

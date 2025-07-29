@@ -1,0 +1,190 @@
+[gd_scene load_steps=7 format=3 uid="uid://tyl14516fwhl"]
+
+[ext_resource type="Script" uid="uid://m80ba1tycn16" path="res://canvas_layer.gd" id="1_x4pgg"]
+[ext_resource type="Texture2D" uid="uid://b5o40l68ngrg7" path="res://Assets/ui menus/Layer 1.png" id="2_vxnr6"]
+[ext_resource type="LabelSettings" uid="uid://dfgerom2lbwke" path="res://Assets/fonts/DosText.tres" id="3_psy05"]
+[ext_resource type="FontFile" uid="uid://bsfcin0lf3ulo" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="4_ebfew"]
+[ext_resource type="Texture2D" uid="uid://c6jqwmxer6jut" path="res://Assets/ui menus/image.png" id="5_vxnr6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugbfj"]
+font = ExtResource("4_ebfew")
+font_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_x4pgg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vxnr6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 93.0
+offset_top = 11.0
+offset_right = 228.0
+offset_bottom = 33.3333
+text = "Special Thanks!"
+label_settings = ExtResource("3_psy05")
+
+[node name="Page1" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="Page1"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 38.0
+offset_right = 135.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 12
+text = "TheHamHog
+MajorSlotho
+Godfrey2102
+VoivelessWrath
+Hiruh
+BigMusard
+Ankylo27"
+label_settings = SubResource("LabelSettings_ugbfj")
+
+[node name="Label3" type="Label" parent="Page1"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 37.0
+offset_right = 317.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 12
+text = "SleepyChris
+Tavotavo
+Rouzyoqi
+andiren
+Daft_Wee_Haggis
+Zen
+Lunar Vagabond"
+label_settings = SubResource("LabelSettings_ugbfj")
+
+[node name="Page2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label4" type="Label" parent="Page2"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 38.0
+offset_right = 135.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 12
+text = "Pixel Monsoon
+Antoine Petit
+Sasuchi
+TheCrabBadger
+Justine
+Plug
+Khaled"
+label_settings = SubResource("LabelSettings_ugbfj")
+
+[node name="Label5" type="Label" parent="Page2"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 37.0
+offset_right = 313.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 12
+text = "Blitzyx
+Lovely Honey
+Jesshiyoo
+Lezheart
+Bitey
+Nubalau
+Double Crescent"
+label_settings = SubResource("LabelSettings_ugbfj")
+
+[node name="Page3" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label6" type="Label" parent="Page3"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 38.0
+offset_right = 135.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 12
+text = "Lestavol
+HinaoHana
+Tylastus
+Tic Tac Joe
+Cap2r
+Y7
+Cosminqf"
+label_settings = SubResource("LabelSettings_ugbfj")
+
+[node name="Label7" type="Label" parent="Page3"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 37.0
+offset_right = 313.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 12
+text = "Abdul Legendary
+Batata Studios
+HarshNarayanJha
+IgnCloudi
+JoyousLlama
+The Fixer
+TaHie"
+label_settings = SubResource("LabelSettings_ugbfj")
+
+[node name="Page4" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Page4"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 51.0
+offset_right = 214.0
+offset_bottom = 73.3333
+text = "Most of All:"
+label_settings = ExtResource("3_psy05")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Page4"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 81.0
+offset_right = 219.0
+offset_bottom = 135.0
+text = "InboundShovel
+and
+Insandio"
+label_settings = ExtResource("3_psy05")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Page4"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 77.0
+offset_right = 79.0
+offset_bottom = 136.0
+texture = ExtResource("5_vxnr6")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 266.0
+offset_top = 9.0
+offset_right = 311.0
+offset_bottom = 27.0
+text = "Space"
+label_settings = ExtResource("3_psy05")

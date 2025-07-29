@@ -30,6 +30,7 @@ window/size/window_width_override=1440
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
+mouse_cursor/custom_image="uid://dwc85h0elw5ii"
 
 [editor_plugins]
 
