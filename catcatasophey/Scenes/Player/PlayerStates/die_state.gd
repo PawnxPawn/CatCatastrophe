@@ -14,6 +14,7 @@ func death_animation_finished(anim_name:StringName) -> void:
 		parent.animation_component.handle_death_animation()
 	if anim_name == &"death":
 		GlobalInfo.is_in_boss_room = false
+		await  get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://Scenes/UI/game_over_screen.tscn")
 
 

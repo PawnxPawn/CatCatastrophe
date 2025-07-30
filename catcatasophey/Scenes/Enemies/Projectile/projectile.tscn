@@ -104,33 +104,33 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6tju"]
-size = Vector2(38, 16)
+size = Vector2(30, 10)
 
 [node name="Projectile" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_k12tg")
-animation = &"hit"
+animation = &"launched"
 autoplay = "launched"
 script = ExtResource("3_ppt1m")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
+position = Vector2(-2, 2)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("4_y22dr")
 metadata/_custom_type_script = "uid://cfk71aloaw2ap"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_m6tju")
 debug_color = Color(1.85303e-06, 0.647716, 0.203124, 0.42)
 
 [node name="HitboxComponent2" type="Area2D" parent="."]
+position = Vector2(-2, 2)
 collision_layer = 64
 script = ExtResource("4_y22dr")
 is_enviorment_detectable = true
 metadata/_custom_type_script = "uid://cfk71aloaw2ap"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent2"]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_m6tju")
 debug_color = Color(1.85303e-06, 0.647716, 0.203124, 0.42)
 

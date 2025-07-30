@@ -22,7 +22,7 @@ func attack_animation_finished(anim_name: StringName) -> void:
 func player_damaged() -> void:
 	parent.animation_component.animation_player.stop()
 	parent.claw_attack.set_deferred("visible", false)
-	parent.hitbox_collision.set_deferred("disabled", false)
+	parent.hitbox_collision.set_deferred("disabled", true)
 	state_return(&"Hurt")
 
 

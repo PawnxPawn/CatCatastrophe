@@ -11,14 +11,12 @@ func enter() -> void:
 
 func hurt_animation_finished(anim_name:StringName) -> void:
 	if anim_name == &"hurt":
-		if is_dead:
-			state_return(&"Dead")
-			return
 		state_return(&"Idle")
 		return
 
 func check_death() -> void:
-	is_dead = true
+		state_return(&"Dead")
+		return
 
 
 func exit() -> void:
