@@ -18,7 +18,7 @@ func enter() -> void:
 
 
 func process_input(_event: InputEvent) -> void:
-	if parent.input_component.get_jump_input():
+	if parent.input_component.get_jump_input() and !check_ceiling_collision():
 		state_return(&"Jump")
 		return
 
